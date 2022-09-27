@@ -92,7 +92,7 @@ namespace LearningStarter
         {
             dataContext.Database.EnsureDeleted();
             dataContext.Database.EnsureCreated();
-            
+
             app.UseHsts();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
@@ -134,6 +134,26 @@ namespace LearningStarter
                 }
             });
 
+            SeedUsers(dataContext);
+            SeedIngredients(dataContext);
+        }
+
+        private void SeedIngredients(DataContext dataContext)
+        {
+            if (!dataContext.Ingredients.Any())
+            {
+                var seededIngredient = new Ingredients
+                {
+                    Name = "Salt",
+                    Stock = 1,
+                };
+
+                dataContext.Ingredients.Add(seededIngredient);
+                dataContext.SaveChanges();
+            }
+        }
+        public void SeedUsers(DataContext dataContext)
+        {
             var numUsers = dataContext.Users.Count();
 
             if (numUsers == 0)
@@ -145,10 +165,11 @@ namespace LearningStarter
                     Username = "admin",
                     Password = "password"
                 };
-                
+
                 dataContext.Users.Add(seededUser);
                 dataContext.SaveChanges();
             }
         }
     }
+
 }
