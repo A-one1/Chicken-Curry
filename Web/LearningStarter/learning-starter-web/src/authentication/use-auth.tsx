@@ -11,7 +11,7 @@ import { UserDto } from "../constants/types";
 import { StatusCodes } from "../constants/status-codes";
 
 const currentUser = "currentUser";
-const baseUrl = process.env.REACT_APP_API_BASE_URL;
+const baseUrl = process.env.PUBLIC_URL;
 
 //functions for setting session storage
 const setUserItem = (user: UserDto) => {
