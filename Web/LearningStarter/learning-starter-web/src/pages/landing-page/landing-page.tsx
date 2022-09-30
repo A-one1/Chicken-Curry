@@ -11,15 +11,14 @@ import Navbar from '../../components/navigation/Navbar';
 //'../../routes/config.tsx' line 31, that also makes it a page
 export const LandingPage = () => {
   return (
-    <><div className="home-page-container">
-      <Header>Home Page 123</Header>
-    </div><>
+
+    <>
         <Router>
           <Navbar />
           <Switch>
             <Route path='/' exact />
           </Switch>
-        </Router></></>
+        </Router></>
     
   );
 };
