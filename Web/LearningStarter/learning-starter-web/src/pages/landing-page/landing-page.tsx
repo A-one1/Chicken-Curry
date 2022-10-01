@@ -2,9 +2,9 @@ import React from "react";
 import { Header } from "semantic-ui-react";
 import "./landing-page.css";
 import "../../App";
-
 import { BrowserRouter as Router, Switch, Routes, Route} from 'react-router-dom';
 import Navbar from '../../components/navigation/Navbar';
+import Home from "../home/home";
 
 
 //This is a basic Component, and since it is used inside of
@@ -16,7 +16,7 @@ export const LandingPage = () => {
         <Router>
           <Navbar />
           <Switch>
-            <Route path='/' exact />
+            <Route path='/' exact component = {Home} />
           </Switch>
         </Router></>
     
