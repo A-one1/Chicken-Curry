@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
 namespace LearningStarter.Controllers
-{ 
+{
 
     [ApiController]
     [Route("api/ingredients")]
@@ -18,7 +18,7 @@ namespace LearningStarter.Controllers
         }
 
         [HttpGet]
-        
+
         public IActionResult GetAll()
         {
             var response = new Response();
@@ -35,7 +35,7 @@ namespace LearningStarter.Controllers
 
             response.Data = ingredients;
             return Ok(response);
-               
+
         }
 
         [HttpPost]
@@ -65,7 +65,7 @@ namespace LearningStarter.Controllers
 
         [HttpPut("{id}")]
         public IActionResult Update(
-            [FromRoute] int id, 
+            [FromRoute] int id,
             [FromBody] IngredientsUpdateDto ingredientsUpdateDto)
         {
             var response = new Response();
@@ -74,11 +74,11 @@ namespace LearningStarter.Controllers
                 .Ingredients
                 .FirstOrDefault(x => x.Id == id);
             {
-               if(ingredientToUpdate == null)
-               {
+                if (ingredientToUpdate == null)
+                {
                     response.AddError("id", "Ingredient not found");
                     return BadRequest(response);
-               }
+                }
 
                 ingredientToUpdate.Name = ingredientsUpdateDto.Name;
                 ingredientToUpdate.Stock = ingredientsUpdateDto.Stock;

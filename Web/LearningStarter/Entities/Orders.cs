@@ -23,7 +23,7 @@ namespace LearningStarter.Entities
 
         public int AssignedDeliveryDriver { get; set; }
 
-        public List<OrderItems> OrderItems { get; set; } = new List<OrderItems>();  
+        public List<OrderItems> OrderItems { get; set; } = new List<OrderItems>();
     }
 
     public class OrdersGetDto
@@ -47,7 +47,7 @@ namespace LearningStarter.Entities
     }
 
     public class OrdersCreateDto
-    { 
+    {
 
         public int Customer { get; set; }
 

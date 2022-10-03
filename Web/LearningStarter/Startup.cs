@@ -92,7 +92,7 @@ namespace LearningStarter
         {
             dataContext.Database.EnsureDeleted();
             dataContext.Database.EnsureCreated();
-            
+
             app.UseHsts();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
@@ -152,7 +152,7 @@ namespace LearningStarter
                 dataContext.SaveChanges();
             }
         }
-        public  void SeedUsers(DataContext dataContext)
+        public void SeedUsers(DataContext dataContext)
         {
             var numUsers = dataContext.Users.Count();
 
