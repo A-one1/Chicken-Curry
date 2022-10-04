@@ -36,7 +36,6 @@ namespace LearningStarter.Entities
 
         public int ZipCode { get; set; }
 
-        public int RewardPoints { get; set; }
     }
 
     public class UserUpdateDto
