@@ -8,7 +8,7 @@ namespace LearningStarter.Entities
 
         public string Name { get; set; }
 
-        public int Price { get; set; }
+        public float Price { get; set; }
 
         public string Description { get; set; }
 
@@ -22,7 +22,7 @@ namespace LearningStarter.Entities
 
         public string Name { get; set; }
 
-        public int Price { get; set; }
+        public float Price { get; set; }
 
         public string Description { get; set; }
 
@@ -34,7 +34,7 @@ namespace LearningStarter.Entities
     {
         public string Name { get; set; }
 
-        public int Price { get; set; }
+        public float Price { get; set; }
 
         public string Description { get; set; }
     }
@@ -43,7 +43,7 @@ namespace LearningStarter.Entities
     {
         public string Name { get; set; }
 
-        public int Price { get; set; }
+        public float Price { get; set; }
 
         public string Description { get; set; }
     }

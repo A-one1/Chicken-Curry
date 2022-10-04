@@ -13,7 +13,9 @@ namespace LearningStarter.Entities
 
         public int Customer { get; set; }
 
-        public int TipAmount { get; set; }
+        public float Total { get; set; }
+
+        public float TipAmount { get; set; }
 
         public int Status { get; set; } // being made, ready, out for delivery, completed, etc
 
@@ -34,7 +36,9 @@ namespace LearningStarter.Entities
 
         public int Customer { get; set; }
 
-        public int TipAmount { get; set; }
+        public float Total { get; set; }
+
+        public float TipAmount { get; set; }
 
         public int Status { get; set; } // being made, ready, out for delivery, completed, etc
 
@@ -51,7 +55,11 @@ namespace LearningStarter.Entities
 
         public int Customer { get; set; }
 
-        public int TipAmount { get; set; }
+        public DateTimeOffset Date { get; set; }
+
+        public float Total { get; set; }
+
+        public float TipAmount { get; set; }
 
         public int Status { get; set; } // being made, ready, out for delivery, completed, etc
 
@@ -59,17 +67,17 @@ namespace LearningStarter.Entities
 
         public string CustomerComments { get; set; }
 
-        public int AssignedDeliveryDriver { get; set; }
+        // public int AssignedDeliveryDriver { get; set; }
     }
 
     public class OrdersUpdateDto
     {
-        public int Id { get; set; }
-
 
         public int Customer { get; set; }
 
-        public int TipAmount { get; set; }
+        public float TipAmount { get; set; }
+
+        public float Total { get; set; }
 
         public int Status { get; set; } // being made, ready, out for delivery, completed, etc
 
