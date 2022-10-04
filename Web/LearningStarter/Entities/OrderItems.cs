@@ -39,8 +39,6 @@
 
     public class OrderItemsUpdateDto
     {
-        public int OrderId { get; set; }
-
         public int Item { get; set; }
 
         public int ItemAmount { get; set; }

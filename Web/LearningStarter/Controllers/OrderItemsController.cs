@@ -135,7 +135,6 @@ namespace LearningStarter.Controllers
                     return BadRequest(response);
                 }
 
-                orderItemsToUpdate.OrderId = orderItemsUpdateDto.OrderId;
                 orderItemsToUpdate.Item = orderItemsUpdateDto.Item;
                 orderItemsToUpdate.ItemAmount = orderItemsUpdateDto.ItemAmount;
                 _dataContext.SaveChanges();
