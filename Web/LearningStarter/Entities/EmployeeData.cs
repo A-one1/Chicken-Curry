@@ -2,7 +2,7 @@
 
 namespace LearningStarter.Entities
 {
-    public class EmployeData
+    public class EmployeeData
     {
         public int Id { get; set; }
         public int ClockType { get; set; }

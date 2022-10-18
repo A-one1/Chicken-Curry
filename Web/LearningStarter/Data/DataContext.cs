@@ -16,7 +16,7 @@ namespace LearningStarter.Data
         public DbSet<MenuItems> MenuItems { get; set; }
         public DbSet<OrderItems> OrderItems { get; set; }
         public DbSet<Orders> Orders { get; set; }
-        public DbSet<EmployeData> EmployeData { get; set; }
+        public DbSet<EmployeeData> EmployeeData { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
