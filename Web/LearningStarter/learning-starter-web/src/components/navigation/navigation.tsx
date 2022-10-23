@@ -58,6 +58,14 @@ const DesktopNavigation = () => {
         text: "Menu Items",
         children: [
           {
+            text: "Menu",
+            icon: "food",
+            hide: false,
+            nav:{
+              to: routes.menuItems.list,
+            }
+          },
+          {
           text: "Create",
           icon: "plus",
           hide: false,

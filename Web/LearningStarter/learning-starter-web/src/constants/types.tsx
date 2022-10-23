@@ -24,7 +24,7 @@ export type UserDto = {
 
 export type MenuItemsCreateDto = {
   name: string;
-  price: number;
+  price: Number;
   discription: string;
 };
 

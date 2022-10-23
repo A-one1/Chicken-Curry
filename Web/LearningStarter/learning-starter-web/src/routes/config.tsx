@@ -7,6 +7,7 @@ import { UserPage } from "../pages/user-page/user-page";
 import { PageWrapper } from "../components/page-wrapper/page-wrapper";
 import { OrderPage } from "../pages/order-page/order-page";
 import { MenuItemsCreatePage } from "../pages/menu-items/create-page/menu-items-create";
+import { MenuItemListPage } from "../pages/menu-items/create-page/menu-items-list";
 
 //This is where you will declare all of your routes (the ones that show up in the search bar)
 export const routes = {
@@ -16,6 +17,7 @@ export const routes = {
   order: `/order`,
   menuItems: {
     create: `/menu-items/create`,
+    list: `/menu-items/list`,
   }
 };
 
@@ -42,6 +44,9 @@ export const Routes = () => {
           {/* Going to route "localhost:5001/" will go to homepage */}
           <Route path={routes.root} exact>
             <Redirect to={routes.home} />
+          </Route>
+          <Route path = {routes.menuItems.list}>
+            <MenuItemListPage/>
           </Route>
           <Route path ={routes.menuItems.create}>
             <MenuItemsCreatePage/>

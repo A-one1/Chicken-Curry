@@ -9,13 +9,12 @@ import {
 } from "../../../constants/types";
 import { useHistory } from "react-router-dom";
 import { routes } from "../../../routes/config";
-
-const BaseUrl = process.env.PUBLIC_URL;
+import { BaseUrl } from "../../../constants/env-vars";
 
 const initialValues: MenuItemsCreateDto = {
-  name: '',
+  name: "",
   price: 0,
-  discription: '',
+  discription: "",
 };
 
 export const MenuItemsCreatePage = () => {
@@ -37,18 +36,18 @@ export const MenuItemsCreatePage = () => {
 
   return (
     <>
-      <Formik initialValues={ initialValues } onSubmit={onSubmit}>
+      <Formik initialValues={initialValues} onSubmit={onSubmit}>
         <Form>
           <div>
             <label htmlFor="name">Name </label>
-        
-          <Field id="name" name="name">
-            {({ field }) => (
-              <>
-                <Input {...field}></Input>{" "}
-              </>
-            )}
-          </Field>
+
+            <Field id="name" name="name">
+              {({ field }) => (
+                <>
+                  <Input {...field}></Input>{" "}
+                </>
+              )}
+            </Field>
           </div>
           <div>
             <Button type="submit">Create</Button>
