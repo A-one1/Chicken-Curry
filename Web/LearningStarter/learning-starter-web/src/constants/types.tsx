@@ -24,13 +24,13 @@ export type UserDto = {
 
 export type MenuItemsCreateDto = {
   name: string;
-  price: Number;
-  discription: string;
+  price: number;
+  description: string;
 };
 
 export type MenuItemsGetDto = {
   id: number;
   name:string;
   price: number;
-  discription: string;
+  description: string;
 };

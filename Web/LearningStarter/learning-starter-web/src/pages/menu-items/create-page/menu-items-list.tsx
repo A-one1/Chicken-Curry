@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Segment } from "semantic-ui-react";
+import { Item, Segment } from "semantic-ui-react";
 import { BaseUrl } from "../../../constants/env-vars";
 import { MenuItemsGetDto } from "../../../constants/types";
 
@@ -11,10 +11,10 @@ export const MenuItemListPage = () => {
     const response = await axios.get(`${BaseUrl}/api/menuitems`);
 
     if (response.data.hasErrors) {
-        response.data.errors.forEach((err) => {
-          console.log(err.message);
-        });
-      } else {
+      response.data.errors.forEach((err) => {
+        console.log(err.message);
+      });
+    } else {
       setMenuItems(response.data.data);
     }
   };
@@ -28,11 +28,23 @@ export const MenuItemListPage = () => {
         {menuItems ? (
           menuItems.map((menuItems) => {
             return (
-              <Segment>
-                <div> Name: {menuItems.name};</div>
-                <div>Price: {menuItems.price};</div>
-                <div>Description: {menuItems.discription};</div>
-              </Segment>
+              //   <Segment>
+              //     <div> Name: {menuItems.name};</div>
+              //     <div>Price: {menuItems.price};</div>
+              //     <div>Description: {menuItems.description};</div>
+              // </Segment>
+
+              <Item.Group>
+                <Item>
+                  <Item.Content>
+                    <Item.Header>{menuItems.name}</Item.Header>
+                    <Item.Meta>
+                      <span className="price">${menuItems.price}</span>
+                    </Item.Meta>
+                    <Item.Description>{menuItems.description}</Item.Description>
+                  </Item.Content>
+                </Item>
+              </Item.Group>
             );
           })
         ) : (

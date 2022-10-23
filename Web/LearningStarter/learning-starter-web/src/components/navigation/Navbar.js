@@ -1,8 +1,10 @@
 import { click } from '@testing-library/user-event/dist/click';
 import React, { useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
+import { routes } from '../../routes/config';
 import { Button } from './button';
 import './Navbar.css'
+import { MenuItemListPage } from '../../pages/menu-items/create-page/menu-items-list';
 
 
 function Navbar() {
@@ -45,7 +47,7 @@ function Navbar() {
             </li>
 
             <li className='nav-items'>
-              <Link to='/menu' className='nav-links' onClick={closeMobileMenu}>
+              <Link   to='/menu-items/list' className='nav-links' onClick={closeMobileMenu}>
                 Menu
               </Link>
             </li>

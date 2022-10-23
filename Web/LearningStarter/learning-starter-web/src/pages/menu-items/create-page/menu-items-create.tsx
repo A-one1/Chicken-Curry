@@ -13,8 +13,8 @@ import { BaseUrl } from "../../../constants/env-vars";
 
 const initialValues: MenuItemsCreateDto = {
   name: "",
-  price: 0,
-  discription: "",
+  price:0,
+  description: "",
 };
 
 export const MenuItemsCreatePage = () => {
@@ -39,15 +39,35 @@ export const MenuItemsCreatePage = () => {
       <Formik initialValues={initialValues} onSubmit={onSubmit}>
         <Form>
           <div>
-            <label htmlFor="name">Name </label>
-
-            <Field id="name" name="name">
+            <h1> CREATE MENU ITEMS </h1>
+            <label htmlFor="name" >Name </label>
+            
+            <Field id="name" name="name" >
               {({ field }) => (
                 <>
-                  <Input {...field}></Input>{" "}
+                  <Input placeholder="Special Sushi" {...field}></Input>{" "}
                 </>
               )}
             </Field>
+            <br /> <br />
+            <label htmlFor="price" >Price</label>
+            <Field id="price" name="price">
+              {({ field }) => (
+                <>
+                  <Input placeholder="$$$" {...field}></Input>{" "}
+                </>
+              )}
+            </Field>
+            <br /> <br />
+            <label htmlFor="description">Description</label>
+            <Field id="description" name="description" >
+              {({ field }) => (
+                <>
+                  <Input placeholder="Describe " {...field}></Input>{" "}
+                </>
+              )}
+            </Field>
+            <br /> <br />
           </div>
           <div>
             <Button type="submit">Create</Button>
