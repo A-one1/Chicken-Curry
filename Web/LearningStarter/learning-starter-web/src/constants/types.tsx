@@ -21,3 +21,16 @@ export type UserDto = {
   lastName: string;
   userName: string;
 };
+
+export type MenuItemsCreateDto = {
+  name: string;
+  price: number;
+  discription: string;
+};
+
+export type MenuItemsGetDto = {
+  id: number;
+  name:string;
+  price: number;
+  discription: string;
+};

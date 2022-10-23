@@ -5,6 +5,7 @@ import "../../App";
 import { BrowserRouter as Router, Switch, Routes, Route} from 'react-router-dom';
 import Navbar from '../../components/navigation/Navbar';
 import Home from "../home/home";
+import HeroSection from "../../components/videoplayback/HeroSection";
 
 
 //This is a basic Component, and since it is used inside of
@@ -15,9 +16,9 @@ export const LandingPage = () => {
     <>
         <Router>
           <Navbar />
-          <Switch>
-            <Route path='/' exact component = {Home} />
-          </Switch>
+          
+            <HeroSection/>
+          
         </Router></>
     
   );

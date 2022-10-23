@@ -46,6 +46,27 @@ const DesktopNavigation = () => {
           to: routes.user,
         },
       },
+      {
+        text: "Order",
+        icon: "coffee",
+        hide: false,
+        nav: {
+          to: routes.order,
+        },
+      },
+      {
+        text: "Menu Items",
+        children: [
+          {
+          text: "Create",
+          icon: "plus",
+          hide: false,
+          nav: {
+            to: routes.menuItems.create,
+          }
+      }]
+
+      },
     ];
   }, []);
 
