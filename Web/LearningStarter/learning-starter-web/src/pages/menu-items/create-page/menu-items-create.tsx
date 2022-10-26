@@ -13,7 +13,7 @@ import { BaseUrl } from "../../../constants/env-vars";
 
 const initialValues: MenuItemsCreateDto = {
   name: "",
-  price:0,
+  price: undefined as any,
   description: "",
 };
 
@@ -54,7 +54,7 @@ export const MenuItemsCreatePage = () => {
             <Field id="price" name="price">
               {({ field }) => (
                 <>
-                  <Input placeholder="$$$" {...field}></Input>{" "}
+                  <Input type="number" placeholder="$$$" {...field}></Input>{" "}
                 </>
               )}
             </Field>
