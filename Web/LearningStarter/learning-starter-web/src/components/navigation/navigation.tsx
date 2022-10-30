@@ -72,6 +72,13 @@ const DesktopNavigation = () => {
           nav: {
             to: routes.menuItems.create,
           }
+      },{
+        text: "Update",
+        icon: "settings",
+        hide:false,
+        nav:{
+          to: routes.menuItems.update
+        }
       }]
 
       },

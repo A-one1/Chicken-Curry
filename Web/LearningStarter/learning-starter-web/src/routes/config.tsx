@@ -8,6 +8,7 @@ import { PageWrapper } from "../components/page-wrapper/page-wrapper";
 import { OrderPage } from "../pages/order-page/order-page";
 import { MenuItemsCreatePage } from "../pages/menu-items/create-page/menu-items-create";
 import { MenuItemListPage } from "../pages/menu-items/create-page/menu-items-list";
+import { MenuItemsUpdatePage } from "../pages/menu-items/menu-items-update";
 
 //This is where you will declare all of your routes (the ones that show up in the search bar)
 export const routes = {
@@ -18,6 +19,7 @@ export const routes = {
   menuItems: {
     create: `/menu-items/create`,
     list: `/menu-items/list`,
+    update: `/menu-items/:id`
   }
 };
 
@@ -50,6 +52,9 @@ export const Routes = () => {
           </Route>
           <Route path ={routes.menuItems.create}>
             <MenuItemsCreatePage/>
+          </Route>
+          <Route path ={routes.menuItems.update}>
+            <MenuItemsUpdatePage/>
 
           </Route>
           {/* This should always come last.  
