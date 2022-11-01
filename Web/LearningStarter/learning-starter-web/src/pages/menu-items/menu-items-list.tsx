@@ -1,8 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Item, Segment } from "semantic-ui-react";
-import { BaseUrl } from "../../../constants/env-vars";
-import { MenuItemsGetDto } from "../../../constants/types";
+import { BaseUrl } from "../../constants/env-vars";
+import { MenuItemsGetDto } from "../../constants/types";
 
 export const MenuItemListPage = () => {
   const [menuItems, setMenuItems] = useState<MenuItemsGetDto[]>();

@@ -6,15 +6,15 @@ import {
   ApiResponse,
   MenuItemsGetDto,
   MenuItemsCreateDto,
-} from "../../../constants/types";
+} from "../../constants/types";
 import { useHistory } from "react-router-dom";
-import { routes } from "../../../routes/config";
-import { BaseUrl } from "../../../constants/env-vars";
+import { routes } from "../../routes/config";
+import { BaseUrl } from "../../constants/env-vars";
 
 const initialValues: MenuItemsCreateDto = {
-  name: "",
+  name: undefined as any,
   price: undefined as any,
-  description: "",
+  description: undefined as any,
 };
 
 export const MenuItemsCreatePage = () => {
@@ -22,15 +22,22 @@ export const MenuItemsCreatePage = () => {
   const onSubmit = async (values: MenuItemsCreateDto) => {
     const response = await axios.post<ApiResponse<MenuItemsGetDto>>(
       `${BaseUrl}/api/menuitems`,
-      values
+      values, 
     );
 
     if (response.data.hasErrors) {
+      alert("Cannot be empty");
+
       response.data.errors.forEach((err) => {
+        console.log("a")
         console.log(err.message);
       });
+      alert("FILL IN THE VALUES");
+
     } else {
       history.push(routes.home);
+      alert("Item created successfully");
+
     }
   };
 
@@ -54,7 +61,7 @@ export const MenuItemsCreatePage = () => {
             <Field id="price" name="price">
               {({ field }) => (
                 <>
-                  <Input type="number" placeholder="$$$" {...field}></Input>{" "}
+                  <Input  placeholder="$$$" {...field}></Input>{" "}
                 </>
               )}
             </Field>

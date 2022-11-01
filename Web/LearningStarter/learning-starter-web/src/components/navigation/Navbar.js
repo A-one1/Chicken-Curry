@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { routes } from '../../routes/config';
 import { Button } from './button';
 import './Navbar.css'
-import { MenuItemListPage } from '../../pages/menu-items/create-page/menu-items-list';
+import { MenuItemListPage } from '../../pages/menu-items/menu-items-list';
 
 
 function Navbar() {

@@ -77,7 +77,7 @@ const DesktopNavigation = () => {
         icon: "settings",
         hide:false,
         nav:{
-          to: routes.menuItems.update
+          to: routes.menuItems.update,
         }
       }]
 
