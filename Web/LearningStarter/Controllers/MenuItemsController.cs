@@ -81,10 +81,24 @@ namespace LearningStarter.Controllers
                 Price = MenuItemsCreateDto.Price,
                 Description = MenuItemsCreateDto.Description,
             };
-            if (MenuItemsCreateDto.Price == 0)
+            
+            if (menuItemsToAdd.Name == null || menuItemsToAdd.Name == "")
             {
-                response.AddError("id","FILL IN THE DETAILS");
-                return BadRequest(response);
+                response.AddError("id", "Name not found");
+                 // return BadRequest(response);
+            }
+            if (menuItemsToAdd.Description == null || menuItemsToAdd.Description == "")
+            {
+                response.AddError("id", "Description not found");
+               // return BadRequest(response);
+            }
+            if (menuItemsToAdd.Price == 0)
+            {
+                response.AddError("id", "Price not found");
+               // return BadRequest(response);
+            }
+            if (response.HasErrors){
+                    return BadRequest(response);       
             }
 
             _dataContext.MenuItems.Add(menuItemsToAdd);

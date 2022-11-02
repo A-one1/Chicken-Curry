@@ -22,22 +22,14 @@ export const MenuItemsCreatePage = () => {
   const onSubmit = async (values: MenuItemsCreateDto) => {
     const response = await axios.post<ApiResponse<MenuItemsGetDto>>(
       `${BaseUrl}/api/menuitems`,
-      values, 
+      values
     );
 
     if (response.data.hasErrors) {
-      alert("Cannot be empty");
-
-      response.data.errors.forEach((err) => {
-        console.log("a")
-        console.log(err.message);
-      });
-      alert("FILL IN THE VALUES");
-
+     console.log(response.data.errors);
     } else {
-      history.push(routes.home);
+      history.push(routes.menuItems.list);
       alert("Item created successfully");
-
     }
   };
 
@@ -47,9 +39,8 @@ export const MenuItemsCreatePage = () => {
         <Form>
           <div>
             <h1> CREATE MENU ITEMS </h1>
-            <label htmlFor="name" >Name </label>
-            
-            <Field id="name" name="name" >
+            <label htmlFor="name">Name </label>
+            <Field id="name" name="name">
               {({ field }) => (
                 <>
                   <Input placeholder="Special Sushi" {...field}></Input>{" "}
@@ -57,17 +48,17 @@ export const MenuItemsCreatePage = () => {
               )}
             </Field>
             <br /> <br />
-            <label htmlFor="price" >Price</label>
+            <label htmlFor="price">Price</label>
             <Field id="price" name="price">
               {({ field }) => (
                 <>
-                  <Input  placeholder="$$$" {...field}></Input>{" "}
+                  <Input type= "number" placeholder="$$$" {...field}></Input>{" "}
                 </>
               )}
             </Field>
             <br /> <br />
             <label htmlFor="description">Description</label>
-            <Field id="description" name="description" >
+            <Field id="description" name="description">
               {({ field }) => (
                 <>
                   <Input placeholder="Describe " {...field}></Input>{" "}
