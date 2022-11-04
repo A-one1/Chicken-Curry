@@ -50,6 +50,7 @@ namespace LearningStarter.Controllers
 
             var orderItems = _dataContext
                 .OrderItems
+                .Where(x => x.OrderId == orderid)
                 .Select(OrderItems => new OrderItemsGetDto
                 {
                     Id = OrderItems.Id,
@@ -60,30 +61,6 @@ namespace LearningStarter.Controllers
                 })
                 .ToList();
 
-            if (orderItems == null)
-            {
-                response.AddError("orderItems", "There was a problem");
-            }
-            int[] removeitems = new int[orderItems.Count]; 
-            for (int i = 0; i < orderItems.Count; i++ )
-            {
-                var item = orderItems[i];
-                if (item.OrderId != orderid) { removeitems[i] = i; }
-            }
-            int count = 0;
-            foreach (int x in removeitems)
-            {
-                if (x != 0) { orderItems.RemoveAt(x - count); count++;  }
-            }
-            /*
-            foreach (var item in orderItems)
-            {
-                if (item.OrderId != orderid)
-                {
-                    
-                }
-            }
-            */
             response.Data = orderItems;
             return Ok(response);
         }
