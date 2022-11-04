@@ -1,7 +1,7 @@
 import "./navigation.css";
 import React, { useMemo } from "react";
 import { NavLink, NavLinkProps } from "react-router-dom";
-import { Dropdown, Image, Menu, Icon, SemanticICONS } from "semantic-ui-react";
+import { Dropdown, Image, Menu, Icon, SemanticICONS, Container, Button } from "semantic-ui-react";
 import logo from "../../assets/logo.png";
 import { UserDto } from "../../constants/types";
 import { logoutUser } from "../../authentication/authentication-services";
@@ -45,6 +45,42 @@ const DesktopNavigation = () => {
         nav: {
           to: routes.user,
         },
+      },
+      {
+        text: "Order",
+        icon: "coffee",
+        hide: false,
+        nav: {
+          to: routes.order,
+        },
+      },
+      {
+        text: "Menu Items",
+        children: [
+          {
+            text: "Menu",
+            icon: "food",
+            hide: false,
+            nav:{
+              to: routes.menuItems.list,
+            }
+          },
+          {
+          text: "Create",
+          icon: "plus",
+          hide: false,
+          nav: {
+            to: routes.menuItems.create,
+          }
+      },{
+        text: "Update",
+        icon: "settings",
+        hide:false,
+        nav:{
+          to: routes.menuItems.update,
+        }
+      }]
+
       },
     ];
   }, []);
@@ -115,11 +151,17 @@ export const PrimaryNavigation: React.FC<PrimaryNavigationProps> = ({
       >
         <Image size="mini" src={logo} alt="logo" className="logo" />
       </Menu.Item>
+      
+      
       {user && (
         <>
           <DesktopNavigation />
           <Menu.Menu position="right">
-            <Dropdown
+            <Button >
+            Sign Up
+
+            </Button>
+            <Dropdown as='a' inverted style={{ marginLeft: '0.5em' }}
               item
               className="user-icon"
               trigger={
@@ -143,9 +185,16 @@ export const PrimaryNavigation: React.FC<PrimaryNavigationProps> = ({
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
+
+            
           </Menu.Menu>
         </>
+
+
+
+
       )}
+
     </Menu>
   );
 };

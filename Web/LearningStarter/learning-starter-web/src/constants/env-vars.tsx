@@ -1,0 +1,1 @@
+export const BaseUrl = process.env.PUBLIC_URL;

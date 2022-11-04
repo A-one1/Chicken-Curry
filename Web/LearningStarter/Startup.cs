@@ -272,10 +272,10 @@ namespace LearningStarter
             {
                 var seededUser = new User
                 {
-                    FirstName = "Billy",
-                    LastName = "Bob",
-                    Username = "bobbilly7",
-                    Password = "password4",
+                    FirstName = "Seeded",
+                    LastName = "User",
+                    Username = "admin",
+                    Password = "password"
                 };
                 var seededUser2 = new User
                 {
