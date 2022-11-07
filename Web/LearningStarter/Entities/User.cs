@@ -13,7 +13,7 @@ namespace LearningStarter.Entities
         public string Password { get; set; }
         public int Role { get; set; }
 
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 
         public string Address { get; set; }
 
@@ -30,7 +30,7 @@ namespace LearningStarter.Entities
         public string Password { get; set; }
         public int Role { get; set; }
 
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 
         public string Address { get; set; }
 
@@ -47,7 +47,7 @@ namespace LearningStarter.Entities
         public string Password { get; set; }
         public int Role { get; set; }
 
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 
         public string Address { get; set; }
 
@@ -65,7 +65,7 @@ namespace LearningStarter.Entities
 
         public int Role { get; set; }
 
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 
         public string Address { get; set; }
 

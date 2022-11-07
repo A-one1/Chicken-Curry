@@ -85,17 +85,14 @@ namespace LearningStarter.Controllers
             if (menuItemsToAdd.Name == null || menuItemsToAdd.Name == "")
             {
                 response.AddError("id", "Name not found");
-                 // return BadRequest(response);
             }
             if (menuItemsToAdd.Description == null || menuItemsToAdd.Description == "")
             {
                 response.AddError("id", "Description not found");
-               // return BadRequest(response);
-            }
+             }
             if (menuItemsToAdd.Price == 0)
             {
                 response.AddError("id", "Price not found");
-               // return BadRequest(response);
             }
             if (response.HasErrors){
                     return BadRequest(response);       

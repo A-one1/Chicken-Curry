@@ -65,7 +65,8 @@ export const UpdatePage = () => {
               )}
             </Field>
             <br /><br/>
-            <label htmlFor="price">Price</label>
+
+            <label htmlFor="price">Price</label> 
             <Field id="price" name="price">
               {({ field }) => (
                 <>

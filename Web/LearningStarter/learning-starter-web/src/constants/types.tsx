@@ -1,7 +1,7 @@
 //This type uses a generic (<T>).  For more information on generics see: https://www.typescriptlang.org/docs/handbook/2/generics.html
 //You probably wont need this for the scope of this class :)
 export type ApiResponse<T> = {
-  data: T ; 
+  data: T;
   errors: Error[];
   hasErrors: boolean;
 };
@@ -30,9 +30,17 @@ export type MenuItemsCreateDto = {
 
 export type MenuItemsGetDto = {
   id: number;
-  name:string;
+  name: string;
   price: number;
-  description: string ;
-  
-  
+  description: string;
+};
+
+export type userCreateDto = {
+  firstName: string;
+  lastName: string;
+  userName: string;
+  password: string;
+  phoneNumber: number;
+  address: string;
+  zipCode: number;
 };
