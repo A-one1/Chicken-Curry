@@ -18,12 +18,13 @@ export const routes = {
   home: `/home`,
   user: `/user`,
   order: `/order`,
-  signup: `/signup`,
+  signup:`/signup`,
   menuItems: {
     create: `/menu-items/create`,
     list: `/menu-items/list`,
     update: `/menu-items/update/`,
     updateOne: `/menu-items/update/:id`,
+    
   },
 };
 

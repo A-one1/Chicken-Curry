@@ -40,7 +40,7 @@ export type userCreateDto = {
   lastName: string;
   userName: string;
   password: string;
-  phoneNumber: number;
+  phoneNumber: string;
   address: string;
   zipCode: number;
 };

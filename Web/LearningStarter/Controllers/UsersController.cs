@@ -108,8 +108,8 @@ namespace LearningStarter.Controllers
             {
                 response.AddError("zipcode", "Invalid Zipcode");
             }
-          
-            if (userCreateDto.PhoneNumber.Length !=10)
+            
+            if (userCreateDto.PhoneNumber.Length != 10)
             {
                 response.AddError("phoneNumber", "Invalid Phone Number");  
             }

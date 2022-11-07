@@ -11,7 +11,6 @@ import { useHistory } from "react-router-dom";
 
 function Navbar() {
 
-  const history = useHistory();
 
   const [click, setClick] = useState(false);
 

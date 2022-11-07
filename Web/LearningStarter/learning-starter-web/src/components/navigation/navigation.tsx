@@ -14,8 +14,7 @@ import logo from "../../assets/logo.png";
 import { UserDto } from "../../constants/types";
 import { logoutUser } from "../../authentication/authentication-services";
 import { routes } from "../../routes/config";
-import { Link } from 'react-router-dom';
-
+import { Link } from "react-router-dom";
 
 type PrimaryNavigationProps = {
   user?: UserDto;
@@ -169,11 +168,9 @@ export const PrimaryNavigation: React.FC<PrimaryNavigationProps> = ({
           <DesktopNavigation />
           <Menu.Menu position="right">
             <Link to={`/signup`}>
-              <Button >
-                Sign Up
-              </Button>
+              <Button>Sign Up</Button>
             </Link>
-         
+
             <Dropdown
               as="a"
               inverted
