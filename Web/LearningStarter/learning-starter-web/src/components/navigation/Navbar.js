@@ -5,9 +5,14 @@ import { routes } from '../../routes/config';
 import { Button } from './button';
 import './Navbar.css'
 import { MenuItemListPage } from '../../pages/menu-items/menu-items-list';
+import { useHistory } from "react-router-dom";
+
 
 
 function Navbar() {
+
+  const history = useHistory();
+
   const [click, setClick] = useState(false);
 
   const handleClick = () => setClick(!click);
@@ -47,7 +52,7 @@ function Navbar() {
             </li>
 
             <li className='nav-items'>
-              <Link   to='/menu-items/list' className='nav-links' onClick={closeMobileMenu}>
+              <Link to='/menu-items/list' className='nav-links'> 
                 Menu
               </Link>
             </li>

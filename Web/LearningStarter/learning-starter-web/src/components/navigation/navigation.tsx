@@ -1,11 +1,21 @@
 import "./navigation.css";
 import React, { useMemo } from "react";
 import { NavLink, NavLinkProps } from "react-router-dom";
-import { Dropdown, Image, Menu, Icon, SemanticICONS, Container, Button } from "semantic-ui-react";
+import {
+  Dropdown,
+  Image,
+  Menu,
+  Icon,
+  SemanticICONS,
+  Container,
+  Button,
+} from "semantic-ui-react";
 import logo from "../../assets/logo.png";
 import { UserDto } from "../../constants/types";
 import { logoutUser } from "../../authentication/authentication-services";
 import { routes } from "../../routes/config";
+import { Link } from 'react-router-dom';
+
 
 type PrimaryNavigationProps = {
   user?: UserDto;
@@ -27,6 +37,7 @@ type NavigationItem = {
 );
 
 //This is where the navigation buttons are defined.
+//const navigate = useNavigate();
 const DesktopNavigation = () => {
   const navigation: NavigationItem[] = useMemo(() => {
     return [
@@ -61,26 +72,27 @@ const DesktopNavigation = () => {
             text: "Menu",
             icon: "food",
             hide: false,
-            nav:{
+            nav: {
               to: routes.menuItems.list,
-            }
+            },
           },
           {
-          text: "Create",
-          icon: "plus",
-          hide: false,
-          nav: {
-            to: routes.menuItems.create,
-          }
-      },{
-        text: "Update",
-        icon: "settings",
-        hide:false,
-        nav:{
-          to: routes.menuItems.update,
-        }
-      }]
-
+            text: "Create",
+            icon: "plus",
+            hide: false,
+            nav: {
+              to: routes.menuItems.create,
+            },
+          },
+          {
+            text: "Update",
+            icon: "settings",
+            hide: false,
+            nav: {
+              to: routes.menuItems.update,
+            },
+          },
+        ],
       },
     ];
   }, []);
@@ -119,7 +131,7 @@ const DesktopNavigation = () => {
                           as={NavLink}
                           to={y.nav?.to}
                         >
-                          {y.icon && <Icon size="small" fitted name={y.icon} />}{" "}
+                          {y.icon && <Icon size="small" fitted name={y.icon} />}
                           {y.text}
                         </Dropdown.Item>
                       );
@@ -151,17 +163,21 @@ export const PrimaryNavigation: React.FC<PrimaryNavigationProps> = ({
       >
         <Image size="mini" src={logo} alt="logo" className="logo" />
       </Menu.Item>
-      
-      
+
       {user && (
         <>
           <DesktopNavigation />
           <Menu.Menu position="right">
-            <Button >
-            Sign Up
-
-            </Button>
-            <Dropdown as='a' inverted style={{ marginLeft: '0.5em' }}
+            <Link to={`/signup`}>
+              <Button >
+                Sign Up
+              </Button>
+            </Link>
+         
+            <Dropdown
+              as="a"
+              inverted
+              style={{ marginLeft: "0.5em" }}
               item
               className="user-icon"
               trigger={
@@ -185,16 +201,9 @@ export const PrimaryNavigation: React.FC<PrimaryNavigationProps> = ({
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
-
-            
           </Menu.Menu>
         </>
-
-
-
-
       )}
-
     </Menu>
   );
 };
