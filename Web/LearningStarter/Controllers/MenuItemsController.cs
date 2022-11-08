@@ -153,5 +153,24 @@ namespace LearningStarter.Controllers
             }
 
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var response = new Response();
+
+            var menuItems = _dataContext.MenuItems.FirstOrDefault(x => x.Id == id);
+
+            if (menuItems == null)
+            {
+                response.AddError("id", "There was a problem deleting the user.");
+                return NotFound(response);
+            }
+
+            _dataContext.MenuItems.Remove(menuItems);
+            _dataContext.SaveChanges();
+
+            return Ok(response);
+        }
     }
 }

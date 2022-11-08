@@ -2,6 +2,7 @@
 using LearningStarter.Data;
 using LearningStarter.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -128,6 +129,25 @@ namespace LearningStarter.Controllers
                 return Ok(response);
             }
 
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var response = new Response();
+
+            var orderItems = _dataContext.OrderItems.FirstOrDefault(x => x.Id == id);
+
+            if (orderItems == null)
+            {
+                response.AddError("id", "There was a problem deleting the user.");
+                return NotFound(response);
+            }
+
+            _dataContext.OrderItems.Remove(orderItems);
+            _dataContext.SaveChanges();
+
+            return Ok(response);
         }
     }
 }

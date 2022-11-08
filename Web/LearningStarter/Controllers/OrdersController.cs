@@ -36,7 +36,7 @@ namespace LearningStarter.Controllers
                     Type = Orders.Type,
                     CustomerComments = Orders.CustomerComments,
                     AssignedDeliveryDriver = Orders.AssignedDeliveryDriver,
-                    
+
                 })
                 .ToList();
             response.Data = orders;
@@ -60,7 +60,7 @@ namespace LearningStarter.Controllers
                 CustomerComments = ordersCreateDto.CustomerComments,
 
             };
-            
+
             _dataContext.Orders.Add(ordersToAdd);
             _dataContext.SaveChanges();
 
@@ -81,6 +81,8 @@ namespace LearningStarter.Controllers
             return Created("", response);
 
         }
+
+
 
         [HttpPut("{id}")]
 
@@ -126,5 +128,42 @@ namespace LearningStarter.Controllers
             }
 
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var response = new Response();
+
+            var order = _dataContext.Orders.FirstOrDefault(x => x.Id == id);
+
+            if (order == null)
+            {
+                response.AddError("id", "There was a problem deleting the order.");
+                return NotFound(response);
+            }
+
+            _dataContext.Orders.Remove(order);
+            _dataContext.SaveChanges();
+
+            var response2 = new Response();
+
+            var orderItems = _dataContext.OrderItems.Where(x => x.OrderId == id).ToList();
+
+            if (orderItems == null)
+            {
+                response.AddError("id", "There was a problem deleting the items associated with this order.");
+                return NotFound(response);
+            }
+            int x = 0;
+            while (x < orderItems.Count)
+            {
+                _dataContext.OrderItems.Remove(orderItems[x]);
+                _dataContext.SaveChanges();
+                x++;
+            }
+
+            return Ok(response);
+        }
+
     }
 }
