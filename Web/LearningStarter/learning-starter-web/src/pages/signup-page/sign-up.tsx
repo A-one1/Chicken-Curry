@@ -2,10 +2,7 @@ import axios from "axios";
 import { Field, Form, Formik } from "formik";
 import React from "react";
 import { Button, Grid, Header, Input, Segment } from "semantic-ui-react";
-import {
-  ApiResponse,
-  userCreateDto,
-} from "../../constants/types";
+import { ApiResponse, userCreateDto } from "../../constants/types";
 import { useHistory } from "react-router-dom";
 import { routes } from "../../routes/config";
 import { BaseUrl } from "../../constants/env-vars";
@@ -24,9 +21,11 @@ const initialValues: userCreateDto = {
 export const RegisterPage = () => {
   const history = useHistory();
   const onSubmit = async (values: userCreateDto) => {
+    console.log("clicked")
     const response = await axios.post<ApiResponse<userCreateDto>>(
       `${BaseUrl}/api/users`,
-      values
+      values,
+      { validateStatus: () => true }
     );
 
     if (response.data.hasErrors) {
@@ -110,7 +109,11 @@ export const RegisterPage = () => {
                         <Field id="zipCode" name="zipCode">
                           {({ field }) => (
                             <>
-                              <Input type= "number" placeholder="Zipcode" {...field}></Input>
+                              <Input
+                                type="number"
+                                placeholder="Zipcode"
+                                {...field}
+                              ></Input>
                             </>
                           )}
                         </Field>
@@ -125,13 +128,15 @@ export const RegisterPage = () => {
                         </>
                       )}
                     </Field>
-                  </div><br></br>
-                  <div >
-                    <Button color="green" type="submit">Register</Button>
-                  </div >
+                  </div>
+                  <br></br>
+                  <div>
+                    <Button color="green" type="submit">
+                      Register
+                    </Button>
+                  </div>
 
                   <Segment>
-                    
                     <Link to="/auth/login">Already have an account?</Link>
                   </Segment>
                 </Segment>
