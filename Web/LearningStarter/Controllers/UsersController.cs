@@ -104,10 +104,14 @@ namespace LearningStarter.Controllers
                 response.AddError("address", "Password cannot be empty.");
             }
 
-            if (userCreateDto.ZipCode.ToString().Length != 5)
+            if (userCreateDto.ZipCode != 70401 && 
+                userCreateDto.ZipCode != 70402 && 
+                userCreateDto.ZipCode != 70403 &&
+                userCreateDto.ZipCode != 70404)
             {
                 response.AddError("zipcode", "Invalid Zipcode");
             }
+
             
             if (userCreateDto.PhoneNumber.Length != 10)
             {
