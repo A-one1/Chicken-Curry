@@ -1,8 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Item, Segment } from "semantic-ui-react";
+import { Button, Card, CardContent, Item, MenuItem, Segment } from "semantic-ui-react";
 import { BaseUrl } from "../../constants/env-vars";
 import { MenuItemsGetDto } from "../../constants/types";
+import { useShoppingCart } from "../../context/ShoppinCartContext";
 
 export const MenuItemListPage = () => {
   const [menuItems, setMenuItems] = useState<MenuItemsGetDto[]>();
@@ -22,35 +23,63 @@ export const MenuItemListPage = () => {
   useEffect(() => {
     fetchMenuItems();
   }, []);
+
+  const {getItemQuantity,increaseCartQuantity,decreaseCartQuantity,removeFromCart} = useShoppingCart();
   return (
     <>
-      <div>
+      <Card.Group itemsPerRow={4} centered>
         {menuItems ? (
+          
           menuItems.map((menuItems) => {
-            return (
-              //   <Segment>
-              //     <div> Name: {menuItems.name};</div>
-              //     <div>Price: {menuItems.price};</div>
-              //     <div>Description: {menuItems.description};</div>
-              // </Segment>
+            
 
-              <Item.Group>
-                <Item>
-                  <Item.Content>
-                    <Item.Header>{menuItems.name}</Item.Header>
-                    <Item.Meta>
-                      <span className="price">${menuItems.price}</span>
-                    </Item.Meta>
-                    <Item.Description>{menuItems.description}</Item.Description>
-                  </Item.Content>
-                </Item>
-              </Item.Group>
+            const quantity = getItemQuantity(menuItems.id);
+
+            return (
+              <Card>
+                <CardContent>
+                  <Card.Header>{menuItems.name}</Card.Header>
+                  <Card.Meta> ${menuItems.price}</Card.Meta>
+                  <Card.Description>{menuItems.description} </Card.Description>
+                </CardContent>
+                <Card.Content>
+                  <div className="mt-auto">
+                    {quantity === 0 ? (
+                      <Button basic color="green" small
+                      onClick={() => increaseCartQuantity(menuItems.id)}>
+                        + Add to Cart
+                      </Button>
+                    ) : (
+                      <div
+                        className="d-flex align-items-center flex-column"
+                        style={{ gap: "2rem" }}
+                      >
+                        <div
+                          className="d-flex align-items-center justify-content-center"
+                          style={{ gap: "2rem" }}
+                        >
+                          <Button onClick={() => decreaseCartQuantity(menuItems.id)}>-</Button>
+                          <span className="fs-3">{quantity}</span> in cart
+                          <Button onClick={() => increaseCartQuantity(menuItems.id)}>+</Button>
+                        </div><br></br>
+                        <Button
+                          onClick={() => removeFromCart(menuItems.id)}
+                          className="negative"
+                          size="small"
+                        >
+                          Remove
+                        </Button>
+                      </div>
+                    )}
+                  </div>
+                </Card.Content>
+              </Card>
             );
           })
         ) : (
           <div>LOADING...</div>
         )}
-      </div>
+      </Card.Group>
     </>
   );
 };
