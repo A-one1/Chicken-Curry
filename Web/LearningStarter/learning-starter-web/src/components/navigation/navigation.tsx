@@ -83,15 +83,6 @@ const DesktopNavigation = () => {
               to: routes.menuItems.create,
             },
           },
-          // Contact route
-          {
-            text: "Contact",
-            icon: "facebook messenger",
-            hide: false,
-            nav: {
-              to: routes.contact,
-            },
-          },
           {
             text: "Update",
             icon: "settings",
