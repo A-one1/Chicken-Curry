@@ -17,7 +17,7 @@ export const UpdatePage = () => {
 
   // let match = useRouteMatch<{ id: string }>();
   const { id } = useParams();
-  console.log(id);
+ 
   const [menuItems, setMenuItems] = useState<MenuItemsGetDto>();
 
   const fetchMenuItems = async () => {
@@ -46,7 +46,7 @@ export const UpdatePage = () => {
         console.log(err.message);
       });
     } else {
-      history.push(routes.menuItems.list);
+      history.push(routes.menuItems.update);
       alert("Item updated successfully");
     }
   };
