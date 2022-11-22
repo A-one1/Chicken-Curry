@@ -15,7 +15,6 @@ export const LandingPage = () => {
 
     <>
         <Router>
-          <Navbar />
           
             <HeroSection/>
           
