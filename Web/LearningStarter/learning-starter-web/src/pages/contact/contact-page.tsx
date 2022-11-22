@@ -3,13 +3,23 @@ import React from 'react';
 import Map from '../../components/Maps/Map';
 import ContactForm from '../../components/ContactForm/ContactForm';
 
-function ContactUs(){
+/* function Contact(){
     return(
         <>
             <ContactForm />
             <Map />
         </>
     );
-}
+} */
 
-export default ContactUs;
+export const Contact = () => {
+    return (
+  
+      <>
+          <ContactForm />
+          <Map />
+    
+        </>
+      
+    );
+  };
