@@ -11,6 +11,7 @@ import { MenuItemListPage } from "../pages/menu-items/menu-items-list";
 import { MenuItemsUpdatePage } from "../pages/menu-items/menu-items-update";
 import { UpdatePage } from "../pages/menu-items/update";
 import { RegisterPage } from "../pages/signup-page/sign-up";
+import { RegisterPage1 } from "../pages/signup-page/sign-up-try";
 
 //This is where you will declare all of your routes (the ones that show up in the search bar)
 export const routes = {
@@ -19,6 +20,7 @@ export const routes = {
   user: `/user`,
   order: `/order`,
   signup:`/signup`,
+  verification:'/verify',
   menuItems: {
     create: `/menu-items/create`,
     list: `/menu-items/list`,
@@ -49,6 +51,12 @@ export const Routes = () => {
             <OrderPage />
           </Route>
           {/* Going to route "localhost:5001/" will go to homepage */}
+          
+          
+          <Route path={routes.verification}>
+            <RegisterPage1></RegisterPage1>
+          </Route>
+          
           <Route path={routes.root} exact>
             <Redirect to={routes.home} />
           </Route>
