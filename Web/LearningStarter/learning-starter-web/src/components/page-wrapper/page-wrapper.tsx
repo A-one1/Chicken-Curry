@@ -15,7 +15,7 @@ export const PageWrapper: React.FC<PageWrapperProps> = ({ user, children }) => {
       {/* <PrimaryNavigation user={user} /> */}
       <Navbar />
 
-      <div className="main-content">{children}</div>
+      <div className="main-content" style={{overflowX:"hidden", padding:"10px"}}>{children}</div>
     </div>
   );
 };

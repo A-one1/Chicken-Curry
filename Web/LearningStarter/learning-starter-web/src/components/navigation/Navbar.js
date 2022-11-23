@@ -56,6 +56,8 @@ function Navbar() {
 
   const [open, setOpen] = React.useState(false);
 
+  const [secondOpen, setSecondOpen] = React.useState(false);
+
   // const [menuItems, setMenuItems] = useState<MenuItemsGetDto[]>();
   var menuItemsIds = getCartItems();
   return (
@@ -85,7 +87,8 @@ function Navbar() {
                 Menu
               </Link>
             </li> */}
-              <div className="dropdown">
+            <li className="nav-items">
+              <div className="dropdown" style={{marginTop:"2px"}}>
                 <Button
                   className="dropbtn"
                   style={{
@@ -112,6 +115,7 @@ function Navbar() {
                   </a>
                 </div>
               </div>
+              </li>
 
               <li className="nav-items">
                 <Link
@@ -131,7 +135,7 @@ function Navbar() {
                   Sign Up
                 </Link>
               </li>
-              <li  className="nav-items">
+              <li className="nav-items">
                 {/* {button && <BUTTON buttonStyle="btn--outline" style={{backgroundColor: "transparent"}}>SIGN UP</BUTTON>} */}
                 {cartQuantity > 0 && (
                   <Modal
@@ -145,6 +149,8 @@ function Navbar() {
                           width: "4.5rem",
                           height: "4rem",
                           position: "relative",
+                          background:"transparent",
+                          color:"white"
                         }}
                         vairant="outline-primary"
                         className="ui circular"
@@ -201,10 +207,27 @@ function Navbar() {
                         content="Proceed"
                         labelPosition="right"
                         icon="checkmark"
-                        onClick={() => setOpen(false)}
+                        onClick={() => setSecondOpen(true)}
                         positive
                       />
                     </Modal.Actions>
+                    <Modal
+                      onClose={() => setSecondOpen(false)}
+                      open={secondOpen}
+                      size="small"
+                    >
+                      <Modal.Header>Thank You</Modal.Header>
+                      <Modal.Content>
+                        <p>Order Placed Successfully</p>
+                      </Modal.Content>
+                      <Modal.Actions>
+                        <Button
+                          icon="check"
+                          content="All Done"
+                          onClick={() => setOpen(false)}
+                        />
+                      </Modal.Actions>
+                    </Modal>
                   </Modal>
                 )}
               </li>
@@ -222,7 +245,7 @@ function Navbar() {
                   </Button>
                   <div
                     className="dropdown-content"
-                    style={{ backgroundColor: "#242424", minWidth: "105px" }}
+                    style={{ backgroundColor: "#242424", minWidth: "95px" }}
                   >
                     <a style={{ color: "white" }} href={routes.order}>
                       My Orders
@@ -230,6 +253,9 @@ function Navbar() {
                     <a style={{ color: "white" }} href={routes.user}>
                       Edit Profile
                     </a>
+                    {/* <a style={{ color: "white" }} href={routes.contactus}>
+                      Contact Us
+                    </a> */}
                     <a
                       href={routes.menuItems.list}
                       style={{ color: "white" }}
@@ -242,7 +268,6 @@ function Navbar() {
                   </div>
                 </div>
               </li>
-             
             </ul>
           </div>
         </div>

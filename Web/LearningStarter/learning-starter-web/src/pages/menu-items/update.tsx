@@ -78,7 +78,7 @@ export const UpdatePage = () => {
             <Field id="description" name="description">
               {({ field }) => (
                 <>
-                  <Input {...field}></Input>{" "}
+                  <Input className="large" {...field}></Input>{" "}
                 </>
               )}
             </Field>
