@@ -12,6 +12,8 @@ import { MenuItemsUpdatePage } from "../pages/menu-items/menu-items-update";
 import { UpdatePage } from "../pages/menu-items/update";
 import { RegisterPage } from "../pages/signup-page/sign-up";
 import { RegisterPage1 } from "../pages/signup-page/sign-up-try";
+import { ContactUs } from "../pages/Contact/Contact";
+
 
 //This is where you will declare all of your routes (the ones that show up in the search bar)
 export const routes = {
@@ -21,6 +23,7 @@ export const routes = {
   order: `/order`,
   signup:`/signup`,
   verification:'/verify',
+  contactus:`/contactus`,
   menuItems: {
     create: `/menu-items/create`,
     list: `/menu-items/list`,
@@ -74,6 +77,10 @@ export const Routes = () => {
           </Route>
           <Route path={routes.signup}>
             <RegisterPage />
+          </Route>
+          <Route path ={routes.contactus}>
+            <ContactUs/>
+
           </Route>
 
           {/* This should always come last.  

@@ -20,6 +20,10 @@ export type UserDto = {
   firstName: string;
   lastName: string;
   userName: string;
+  PhoneNumber: string;
+  Address: string;
+  ZipCode: number;
+  RewardPoints: number;
 };
 
 export type MenuItemsCreateDto = {

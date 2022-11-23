@@ -24,7 +24,7 @@ export const MenuItemListPage = () => {
   }, []);
   return (
     <>
-      <div>
+      <div >
         {menuItems ? (
           menuItems.map((menuItems) => {
             return (

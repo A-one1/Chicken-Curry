@@ -10,17 +10,18 @@ function HeroSection(){
             <h1> FOOD AWAITS</h1>
             <p> What are you waiting for? </p>
             <div className='hero-btns'>
-                <Button
+                {/* <Button
                  className='btns' 
                  buttonStyle='btn--outline'
                   buttonSize='btn--large'> 
                 BOOK NOW
-                </Button>
+                </Button> */}
 
                 <Button
                  className='btns' 
                  buttonStyle='btn--primary'
-                  buttonSize='btn--large'> 
+                  buttonSize='btn--large'
+                  > 
                   ORDER NOW
                 </Button>
 
