@@ -3,10 +3,12 @@ import axios from "axios";
 import React, { useMemo } from "react";
 import { ApiResponse } from "../../constants/types";
 import { Formik, Form, Field } from "formik";
-import { Button, Input } from "semantic-ui-react";
+import { Button, Header, Image, Input, Modal } from "semantic-ui-react";
 import { useAsyncFn } from "react-use";
 import { PageWrapper } from "../../components/page-wrapper/page-wrapper";
 import { loginUser } from "../../authentication/authentication-services";
+import { Link } from "react-router-dom";
+import { RegisterPage } from "../signup-page/sign-up";
 
 const baseUrl = process.env.PUBLIC_URL;
 
@@ -39,12 +41,19 @@ export const LoginPage = () => {
       `${baseUrl}/api/authenticate`,
       values
     );
+    
 
     if (response.data.data) {
       console.log("Successfully Logged In!");
       loginUser();
     }
+    else{
+      alert("Invalid Username or Password!");
+    }
   }, []);
+
+  const [open, setOpen] = React.useState(false)
+
 
   return (
     <PageWrapper>
@@ -73,6 +82,37 @@ export const LoginPage = () => {
                   <Button className="login-button" type="submit">
                     Login
                   </Button>
+                  {/* <Link to={`/signup`}>
+                    <Button>Sign Up</Button>
+                  </Link> */}
+
+
+                  <Modal
+                    onClose={() => setOpen(false)}
+                    onOpen={() => setOpen(true)}
+                    open={open}
+                    trigger={<Button>Sign Up</Button>}
+                  >
+                    <Modal.Header>Sign Up</Modal.Header>
+                    <Modal.Content>
+                      
+                      <Modal.Description>
+                        <RegisterPage />
+                      </Modal.Description>
+                    </Modal.Content>
+                    <Modal.Actions>
+                      <Button color="black" onClick={() => setOpen(false)}>
+                        Nope
+                      </Button>
+                      <Button
+                        content="Yep, that's me"
+                        labelPosition="right"
+                        icon="checkmark"
+                        onClick={() => setOpen(false)}
+                        positive
+                      />
+                    </Modal.Actions>
+                  </Modal>
                 </div>
               </div>
             </Form>

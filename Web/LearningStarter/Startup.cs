@@ -275,7 +275,13 @@ namespace LearningStarter
                     FirstName = "Seeded",
                     LastName = "User",
                     Username = "admin",
-                    Password = "password"
+                    Password = "password",
+                    PhoneNumber = "9859565656",
+                    Address = "1212 University Avnue, Hammond, Louisiana",
+                    ZipCode = 70402,
+                    RewardPoints = 999,
+
+
                 };
                 var seededUser2 = new User
                 {
@@ -308,31 +314,49 @@ namespace LearningStarter
                 {
                     Name = "Curry Chicken",
                     Price = 5.99f,
-                    Description = "description",
+                    Description = "chicken stewed in an onion- and tomato-based sauce, flavoured with ginger, garlic, tomato puree, chilli peppers and a variety of spices, often including turmeric, cumin, coriander, cinnamon, and cardamom.",
                 };
                 var seededMenuItem2 = new MenuItems
                 {
-                    Name = "Soup",
+                    Name = "Chicken Soup",
                     Price = 12.99f,
-                    Description = "a soup",
+                    Description = " a soup made from chicken, simmered in water, usually with various other ingredients.",
                 };
                 var seededMenuItem3 = new MenuItems
                 {
-                    Name = "Cookie",
-                    Price = 1.99f,
-                    Description = "a cookie",
+                    Name = "Chicken Biryani",
+                    Price = 19.99f,
+                    Description = " delicious savory rice dish that is loaded with spicy marinated chicken, caramelized onions, and flavorful saffron rice. ",
                 };
                 var seededMenuItem4 = new MenuItems
                 {
                     Name = "Noodle Bowl",
                     Price = 8.99f,
-                    Description = "oodles of noodles",
+                    Description = "Soaked rice noodles are stir-fried with zucchini, green onions, garlic, and sesame oil-spiked eggs ",
                 };
+                var seededMenuItem5 = new MenuItems
+                {
+                    Name = "Mango Lassi",
+                    Price = 4.99f,
+                    Description = "delicious creamy drink with mango, yogurt, milk, a little sugar, and a sprinkling of cardamom.",
+                };
+                var seededMenuItem6= new MenuItems
+                {
+                    Name = "Tandoori Chicken",
+                    Price = 4.99f,
+                    Description = "chicken marinated in yogurt and spices and roasted in a tandoor, a cylindrical clay oven.",
+                };
+
+
+
 
                 dataContext.MenuItems.Add(seededMenuItem1);
                 dataContext.MenuItems.Add(seededMenuItem4);
                 dataContext.MenuItems.Add(seededMenuItem3);
                 dataContext.MenuItems.Add(seededMenuItem2);
+                dataContext.MenuItems.Add(seededMenuItem5);
+                dataContext.MenuItems.Add(seededMenuItem6);
+
                 dataContext.SaveChanges();
             }
         }

@@ -10,6 +10,10 @@ import { MenuItemsCreatePage } from "../pages/menu-items/menu-items-create";
 import { MenuItemListPage } from "../pages/menu-items/menu-items-list";
 import { MenuItemsUpdatePage } from "../pages/menu-items/menu-items-update";
 import { UpdatePage } from "../pages/menu-items/update";
+import { RegisterPage } from "../pages/signup-page/sign-up";
+import { RegisterPage1 } from "../pages/signup-page/sign-up-try";
+import { ContactUs } from "../pages/Contact/Contact";
+
 
 //This is where you will declare all of your routes (the ones that show up in the search bar)
 export const routes = {
@@ -17,11 +21,15 @@ export const routes = {
   home: `/home`,
   user: `/user`,
   order: `/order`,
+  signup:`/signup`,
+  verification:'/verify',
+  contactus:`/contactus`,
   menuItems: {
     create: `/menu-items/create`,
     list: `/menu-items/list`,
     update: `/menu-items/update/`,
     updateOne: `/menu-items/update/:id`,
+    
   },
 };
 
@@ -46,6 +54,12 @@ export const Routes = () => {
             <OrderPage />
           </Route>
           {/* Going to route "localhost:5001/" will go to homepage */}
+          
+          
+          <Route path={routes.verification}>
+            <RegisterPage1></RegisterPage1>
+          </Route>
+          
           <Route path={routes.root} exact>
             <Redirect to={routes.home} />
           </Route>
@@ -61,6 +75,14 @@ export const Routes = () => {
           <Route path={routes.menuItems.update}>
             <MenuItemsUpdatePage />
           </Route>
+          <Route path={routes.signup}>
+            <RegisterPage />
+          </Route>
+          <Route path ={routes.contactus}>
+            <ContactUs/>
+
+          </Route>
+
           {/* This should always come last.  
             If the path has no match, show page not found */}
           <Route path="*" exact>
