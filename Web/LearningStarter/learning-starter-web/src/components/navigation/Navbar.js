@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { routes } from "../../routes/config";
 import { Button as BUTTON } from "./button";
 import "./Navbar.css";
+import { useHistory } from "react-router-dom";
 import { useShoppingCart } from "../../context/ShoppinCartContext";
 import "./navigation.css";
 import {
@@ -24,6 +25,17 @@ import { CartItem } from "../shopping-cart/CartItem";
 import { BaseUrl } from "../../constants/env-vars";
 
 function Navbar() {
+  const history = useHistory();
+  const menulist = () => {
+    history.push(routes.menuItems.list);
+  };
+  const menucreate = () => {
+    history.push(routes.menuItems.create);
+  };
+  const menuupdate = () => {
+    history.push(routes.menuItems.update);
+  };
+
   const [click, setClick] = useState(false);
 
   const handleClick = () => setClick(!click);
@@ -87,34 +99,35 @@ function Navbar() {
                 Menu
               </Link>
             </li> */}
-            <li className="nav-items">
-              <div className="dropdown" style={{marginTop:"2px"}}>
-                <Button
-                  className="dropbtn"
-                  style={{
-                    color: "white",
-                    fontSize: "1.2rem",
-                    backgroundColor: "transparent",
-                  }}
-                >
-                  Menu
-                </Button>
+              <li className="nav-items">
+                <div className="dropdown" style={{ marginTop: "2px" }}>
+                  <Button
+                    className="dropbtn"
+                    style={{
+                      color: "white",
+                      fontSize: "1.2rem",
+                      backgroundColor: "transparent",
+                      
+                    }}
+                  >
+                    Menu
+                  </Button>
 
-                <div
-                  className="dropdown-content"
-                  style={{ backgroundColor: "#242424" }}
-                >
-                  <a href={routes.menuItems.list} style={{ color: "white" }}>
-                    <i className="food icon"></i>List
-                  </a>
-                  <a href={routes.menuItems.create} style={{ color: "white" }}>
-                    <i className="plus icon"> </i>Create
-                  </a>
-                  <a href={routes.menuItems.update} style={{ color: "white" }}>
-                    <i className="settings icon"></i>Update
-                  </a>
+                  <div
+                    className="dropdown-content"
+                    style={{ backgroundColor: "#242424" }}
+                  >
+                    <a style={{ color: "white" }} onClick={menulist}>
+                      <i className="food icon"></i>List
+                    </a>
+                    <a onClick={menucreate} style={{ color: "white" }}>
+                      <i className="plus icon"> </i>Create
+                    </a>
+                    <a onClick={menuupdate} style={{ color: "white" }}>
+                      <i className="settings icon"></i>Update
+                    </a>
+                  </div>
                 </div>
-              </div>
               </li>
 
               <li className="nav-items">
@@ -149,8 +162,8 @@ function Navbar() {
                           width: "4.5rem",
                           height: "4rem",
                           position: "relative",
-                          background:"transparent",
-                          color:"white"
+                          background: "transparent",
+                          color: "white",
                         }}
                         vairant="outline-primary"
                         className="ui circular"
@@ -239,13 +252,14 @@ function Navbar() {
                       color: "white",
                       fontSize: "1.2rem",
                       backgroundColor: "transparent",
+                      
                     }}
                   >
                     <i className="angle down icon"></i>
                   </Button>
                   <div
                     className="dropdown-content"
-                    style={{ backgroundColor: "#242424", minWidth: "95px" }}
+                    style={{ backgroundColor: "#242424", float:"right"}}
                   >
                     <a style={{ color: "white" }} href={routes.order}>
                       My Orders
