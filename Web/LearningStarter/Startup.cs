@@ -360,6 +360,22 @@ namespace LearningStarter
                 dataContext.SaveChanges();
             }
         }
+
+        public void SeedRoles(DataContext dataContext)
+        {
+            if (!dataContext.Roles.Any())
+            {
+                var seededRole1 = new Roles
+                {
+                    RoleName = "Admin-User",
+                };
+
+                var seededRole2 = new Roles
+                {
+                    RoleName = "User"
+                };
+            }
+        }
     }
 
 }
