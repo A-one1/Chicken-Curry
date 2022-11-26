@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Field, Form, Formik } from "formik";
 import React, { useEffect, useState } from "react";
-import { Button, Input } from "semantic-ui-react";
+import { Button, Input, Label, TextArea } from "semantic-ui-react";
 import {
   ApiResponse,
   MenuItemsCreateDto,
@@ -17,7 +17,7 @@ export const UpdatePage = () => {
 
   // let match = useRouteMatch<{ id: string }>();
   const { id } = useParams();
- 
+
   const [menuItems, setMenuItems] = useState<MenuItemsGetDto>();
 
   const fetchMenuItems = async () => {
@@ -56,16 +56,16 @@ export const UpdatePage = () => {
       {menuItems && (
         <Formik initialValues={menuItems} onSubmit={onSubmit}>
           <Form>
-            <label htmlFor="name">Name</label>
-            <Field id="name" name="name">
+            <Label htmlFor="name">Name</Label>            <Field id="name" name="name">
               {({ field }) => (
                 <>
                   <Input {...field}></Input>{" "}
                 </>
               )}
             </Field>
-            <br /><br/>
-            <label htmlFor="price">Price</label>
+            <br />
+            <br />
+            <Label htmlFor="price">Price</Label>
             <Field id="price" name="price">
               {({ field }) => (
                 <>
@@ -73,17 +73,24 @@ export const UpdatePage = () => {
                 </>
               )}
             </Field>
-            <br /><br/>
-            <label htmlFor="description">Description</label>
+            <br />
+            <br />
+            <Label htmlFor="description">Description</Label>
+            <br />
             <Field id="description" name="description">
               {({ field }) => (
                 <>
-                  <Input className="large" {...field}></Input>{" "}
+                  <TextArea
+                  placeholder="Describe"
+                    rows="3"
+                    style={{ width: "500px", height: "100px" }}
+                    {...field}
+                  ></TextArea>{" "}
                 </>
               )}
             </Field>
-            <br/> <br/>
-            <Button type="submit">Update</Button>
+            <br /> <br />
+            <Button className="ui positive basic button"type="submit">Update</Button>
           </Form>
         </Formik>
       )}

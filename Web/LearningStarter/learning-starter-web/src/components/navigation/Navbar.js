@@ -25,9 +25,13 @@ import { CartItem } from "../shopping-cart/CartItem";
 import { BaseUrl } from "../../constants/env-vars";
 
 function Navbar() {
+  const closeMobileMenu = () => setClick(false);
+
   const history = useHistory();
   const menulist = () => {
+    
     history.push(routes.menuItems.list);
+    closeMobileMenu();
   };
   const menucreate = () => {
     history.push(routes.menuItems.create);
@@ -40,7 +44,6 @@ function Navbar() {
 
   const handleClick = () => setClick(!click);
 
-  const closeMobileMenu = () => setClick(false);
 
   const [button, setButton] = useState(true);
 
@@ -116,14 +119,17 @@ function Navbar() {
                   <div
                     className="dropdown-content"
                     style={{ backgroundColor: "#242424" }}
+                    // onClick={closeMobileMenu}
                   >
-                    <a style={{ color: "white" }} onClick={menulist}>
+                    <a style={{ color: "white" }} 
+                    href=""
+                    onClick={menulist}>
                       <i className="food icon"></i>List
                     </a>
-                    <a onClick={menucreate} style={{ color: "white" }}>
+                    <a  href="" onClick={menucreate} style={{ color: "white" }}>
                       <i className="plus icon"> </i>Create
                     </a>
-                    <a onClick={menuupdate} style={{ color: "white" }}>
+                    <a href="" onClick={menuupdate} style={{ color: "white" }}>
                       <i className="settings icon"></i>Update
                     </a>
                   </div>
@@ -264,7 +270,7 @@ function Navbar() {
                     className="dropdown-content"
                     style={{ backgroundColor: "#242424", float:"right"}}
                   >
-                    <a style={{ color: "white" }} href={routes.order}>
+                    <a style={{ color: "white" }} href={routes.order} onClick={closeMobileMenu}>
                       My Orders
                     </a>
                     <a style={{ color: "white" }} href={routes.user}>
