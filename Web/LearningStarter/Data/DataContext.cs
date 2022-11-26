@@ -18,6 +18,10 @@ namespace LearningStarter.Data
         public DbSet<Orders> Orders { get; set; }
         public DbSet<EmployeeData> EmployeeData { get; set; }
 
+        public DbSet<Roles> Roles { get; set; }
+
+        public DbSet<UserRoles> UserRoles { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>()

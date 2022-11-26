@@ -2,21 +2,21 @@
 {
     public class Roles
     {
-        int Id { get; set; }
+        public int Id { get; set; }
 
-        string RoleName { get; set; }
+        public string RoleName { get; set; }
 
     }
 
     public class RolesGetDto
     {
-        int Id { get; set; }
+        public int Id { get; set; }
 
-        string RoleName { set; get; }
+        public string RoleName { set; get; }
     }
 
     public class RolesUpdateDto
     {
-        string RoleName { get; set; }
+        public string RoleName { get; set; }
     }
 }

@@ -13,6 +13,8 @@ namespace LearningStarter.Entities
         public string Password { get; set; }
         public int Role { get; set; }
 
+        public Roles Roles { get; set; }
+
         public int PhoneNumber { get; set; }
 
         public string Address { get; set; }
