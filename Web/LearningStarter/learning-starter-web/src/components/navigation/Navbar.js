@@ -141,7 +141,7 @@ function Navbar() {
               </li>
               <li className="nav-items">
                 <Link
-                  to="/signup"
+                  to={routes.signup}
                   className="nav-links"
                   onClick={closeMobileMenu}
                 >
@@ -216,13 +216,16 @@ function Navbar() {
                         Cancel
                         <i className="cancel icon"></i>
                       </Button>
+                      <Link to={routes.checkout}> 
                       <Button
+                      to={routes.Checkout}
                         content="Proceed"
                         labelPosition="right"
                         icon="checkmark"
-                        onClick={() => setSecondOpen(true)}
+                        onClick={() =>setOpen(false)}
                         positive
                       />
+                      </Link>
                     </Modal.Actions>
                     <Modal
                       onClose={() => setSecondOpen(false)}
