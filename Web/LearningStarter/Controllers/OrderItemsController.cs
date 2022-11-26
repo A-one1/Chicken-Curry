@@ -2,6 +2,7 @@
 using LearningStarter.Data;
 using LearningStarter.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -50,6 +51,7 @@ namespace LearningStarter.Controllers
 
             var orderItems = _dataContext
                 .OrderItems
+                .Where(x => x.OrderId == orderid)
                 .Select(OrderItems => new OrderItemsGetDto
                 {
                     Id = OrderItems.Id,
@@ -60,30 +62,6 @@ namespace LearningStarter.Controllers
                 })
                 .ToList();
 
-            if (orderItems == null)
-            {
-                response.AddError("orderItems", "There was a problem");
-            }
-            int[] removeitems = new int[orderItems.Count]; 
-            for (int i = 0; i < orderItems.Count; i++ )
-            {
-                var item = orderItems[i];
-                if (item.OrderId != orderid) { removeitems[i] = i; }
-            }
-            int count = 0;
-            foreach (int x in removeitems)
-            {
-                if (x != 0) { orderItems.RemoveAt(x - count); count++;  }
-            }
-            /*
-            foreach (var item in orderItems)
-            {
-                if (item.OrderId != orderid)
-                {
-                    
-                }
-            }
-            */
             response.Data = orderItems;
             return Ok(response);
         }
@@ -151,6 +129,25 @@ namespace LearningStarter.Controllers
                 return Ok(response);
             }
 
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var response = new Response();
+
+            var orderItems = _dataContext.OrderItems.FirstOrDefault(x => x.Id == id);
+
+            if (orderItems == null)
+            {
+                response.AddError("id", "There was a problem deleting the user.");
+                return NotFound(response);
+            }
+
+            _dataContext.OrderItems.Remove(orderItems);
+            _dataContext.SaveChanges();
+
+            return Ok(response);
         }
     }
 }
