@@ -315,38 +315,43 @@ namespace LearningStarter
                     Name = "Curry Chicken",
                     Price = 5.99f,
                     Description = "chicken stewed in an onion- and tomato-based sauce, flavoured with ginger, garlic, tomato puree, chilli peppers and a variety of spices, often including turmeric, cumin, coriander, cinnamon, and cardamom.",
+                    PictureUrl = "https://www.allrecipes.com/thmb/3BUQ8JgEBz38XjpG7phlZLB-CjM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/46822-Indian-Chicken-Curry-103303-1x1-1-4843e1524ac04c2aa8e464891857114b.jpg"
                 };
                 var seededMenuItem2 = new MenuItems
                 {
                     Name = "Chicken Soup",
                     Price = 12.99f,
                     Description = " a soup made from chicken, simmered in water, usually with various other ingredients.",
+                    PictureUrl = "https://www.inspiredtaste.net/wp-content/uploads/2018/09/Easy-Chicken-Noodle-Soup-Recipe-1200.jpg"
                 };
                 var seededMenuItem3 = new MenuItems
                 {
                     Name = "Chicken Biryani",
                     Price = 19.99f,
                     Description = " delicious savory rice dish that is loaded with spicy marinated chicken, caramelized onions, and flavorful saffron rice. ",
+                    PictureUrl = "https://www.cubesnjuliennes.com/wp-content/uploads/2020/07/Chicken-Biryani-Recipe-500x500.jpg"
                 };
                 var seededMenuItem4 = new MenuItems
                 {
                     Name = "Noodle Bowl",
                     Price = 8.99f,
                     Description = "Soaked rice noodles are stir-fried with zucchini, green onions, garlic, and sesame oil-spiked eggs ",
+                    PictureUrl = "https://www.bhg.com/thmb/zNkczGRSyoAiAWQOSRdzWp0BXwg=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/RU279584-653582532e1c4ef29ebab0666c0a956c.jpg"
                 };
                 var seededMenuItem5 = new MenuItems
                 {
                     Name = "Mango Lassi",
                     Price = 4.99f,
                     Description = "delicious creamy drink with mango, yogurt, milk, a little sugar, and a sprinkling of cardamom.",
+                    PictureUrl = "https://www.indianveggiedelight.com/wp-content/uploads/2021/05/mango-lassi-1152x1536.jpg"
                 };
-                var seededMenuItem6= new MenuItems
+                var seededMenuItem6 = new MenuItems
                 {
                     Name = "Tandoori Chicken",
                     Price = 4.99f,
                     Description = "chicken marinated in yogurt and spices and roasted in a tandoor, a cylindrical clay oven.",
+                    PictureUrl = "http://delishar.com/wp-content/uploads/2017/01/Tandoori-Roasted-Chicken.jpg"
                 };
-
 
 
 

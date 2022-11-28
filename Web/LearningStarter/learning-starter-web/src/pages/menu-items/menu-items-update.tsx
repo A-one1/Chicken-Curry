@@ -46,13 +46,14 @@ export const MenuItemsUpdatePage = () => {
   return (
     <>
       <div>
-        <Table fixed>
+        <Table fixed inverted>
           <Table.Header>
             <Table.Row>
-              <Table.HeaderCell class="collapsing"> ID.</Table.HeaderCell>
-              <Table.HeaderCell>Name</Table.HeaderCell>
-              <Table.HeaderCell> Price</Table.HeaderCell>
-              <Table.HeaderCell> Description</Table.HeaderCell>
+              <Table.HeaderCell textAlign = "center" class="collapsing">ID</Table.HeaderCell>
+              <Table.HeaderCell textAlign="center">Name</Table.HeaderCell>
+              <Table.HeaderCell textAlign="center">Price</Table.HeaderCell>
+              <Table.HeaderCell textAlign="center">Description</Table.HeaderCell>
+              <Table.HeaderCell textAlign="center"> </Table.HeaderCell>
             </Table.Row>
           </Table.Header>
         </Table>
@@ -64,14 +65,14 @@ export const MenuItemsUpdatePage = () => {
                   <Table fixed>
                     <Table.Body>
                       <Table.Row key={menuItems.id}>
-                        <Table.Cell class="collapsing">
+                        <Table.Cell class="collapsing" textAlign="center">
                           {" "}
                           {menuItems.id}{" "}
                         </Table.Cell>
-                        <Table.Cell> {menuItems.name} </Table.Cell>
-                        <Table.Cell> {menuItems.price}</Table.Cell>
-                        <Table.Cell> {menuItems.description}</Table.Cell>
-                        <Table.Cell>
+                        <Table.Cell textAlign="center"> {menuItems.name} </Table.Cell>
+                        <Table.Cell textAlign="center"> {menuItems.price}</Table.Cell>
+                        <Table.Cell textAlign="center"> {menuItems.description}</Table.Cell>
+                        <Table.Cell textAlign="right">
                           <Link to={`/menu-items/update/${menuItems.id}`}>
                             <Button icon primary>
                               Update

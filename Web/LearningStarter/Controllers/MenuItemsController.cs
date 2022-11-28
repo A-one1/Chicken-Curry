@@ -31,7 +31,8 @@ namespace LearningStarter.Controllers
                     Id = MenuItems.Id,
                     Name = MenuItems.Name,
                     Price = MenuItems.Price,
-                    Description = MenuItems.Description
+                    Description = MenuItems.Description,
+                    PictureUrl = MenuItems.PictureUrl,
 
                 })
                 .ToList();
@@ -59,7 +60,8 @@ namespace LearningStarter.Controllers
                 Id = menuItem.Id,
                 Name = menuItem.Name,
                 Price = menuItem.Price,
-                Description = menuItem.Description
+                Description = menuItem.Description,
+                PictureUrl = menuItem.PictureUrl,
             };
 
             response.Data = menuItemGetDto;
@@ -80,6 +82,7 @@ namespace LearningStarter.Controllers
                 Name = MenuItemsCreateDto.Name,
                 Price = MenuItemsCreateDto.Price,
                 Description = MenuItemsCreateDto.Description,
+                PictureUrl=MenuItemsCreateDto.PictureUrl,
             };
             
             if (menuItemsToAdd.Name == null || menuItemsToAdd.Name == "")
@@ -110,6 +113,7 @@ namespace LearningStarter.Controllers
                 Name = menuItemsToAdd.Name,
                 Price = menuItemsToAdd.Price,
                 Description = menuItemsToAdd.Description,
+                PictureUrl = menuItemsToAdd?.PictureUrl,
             };
 
             response.Data = menuItemsToReturn;
@@ -138,6 +142,7 @@ namespace LearningStarter.Controllers
                 menuItemsToUpdate.Name = menuItemsUpdateDto.Name;
                 menuItemsToUpdate.Price = menuItemsUpdateDto.Price;
                 menuItemsToUpdate.Description = menuItemsUpdateDto.Description;
+                menuItemsToUpdate.PictureUrl = menuItemsUpdateDto.PictureUrl;
                 _dataContext.SaveChanges();
 
                 var menuItemsToReturn = new MenuItemsGetDto
@@ -146,6 +151,7 @@ namespace LearningStarter.Controllers
                     Name = menuItemsToUpdate.Name,
                     Price = menuItemsToUpdate.Price,
                     Description = menuItemsToUpdate.Description,
+                    PictureUrl = menuItemsToUpdate.PictureUrl,
                 };
 
                 response.Data = menuItemsToReturn;

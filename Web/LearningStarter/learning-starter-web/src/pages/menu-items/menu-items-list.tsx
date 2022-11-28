@@ -5,6 +5,7 @@ import {
   Card,
   CardContent,
   Icon,
+  Image,
   Item,
   MenuItem,
   Segment,
@@ -57,6 +58,7 @@ export const MenuItemListPage = () => {
                 <CardContent>
                   <Card.Header>{menuItems.name}</Card.Header>
                   <Card.Meta> ${menuItems.price}</Card.Meta>
+                  <Image src = {String(menuItems.pictureUrl)} size='small' />
                   <Card.Description>{menuItems.description} </Card.Description>
                 </CardContent>
                 <Card.Content>

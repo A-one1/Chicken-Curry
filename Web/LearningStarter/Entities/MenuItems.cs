@@ -14,6 +14,8 @@ namespace LearningStarter.Entities
 
         public List<Ingredients> Ingredients { get; set; }
 
+        public string PictureUrl { get; set; }
+
     }
 
     public class MenuItemsGetDto
@@ -28,6 +30,8 @@ namespace LearningStarter.Entities
 
         public List<Ingredients> Ingredients { get; set; }
 
+        public string PictureUrl { get; set; }
+
     }
 
     public class MenuItemsCreateDto
@@ -37,6 +41,8 @@ namespace LearningStarter.Entities
         public float Price { get; set; }
 
         public string Description { get; set; }
+
+        public string PictureUrl { get; set; }
     }
 
     public class MenuItemsUpdateDto
@@ -46,5 +52,7 @@ namespace LearningStarter.Entities
         public float Price { get; set; }
 
         public string Description { get; set; }
+
+        public string PictureUrl { get; set; }
     }
 }
