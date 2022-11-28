@@ -2,6 +2,7 @@
 using LearningStarter.Data;
 using LearningStarter.Entities;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Linq;
 
 namespace LearningStarter.Controllers
@@ -51,7 +52,7 @@ namespace LearningStarter.Controllers
 
             var ordersToAdd = new Orders
             {
-                Date = ordersCreateDto.Date,
+                Date = DateTimeOffset.UtcNow,
                 Customer = ordersCreateDto.Customer,
                 TipAmount = ordersCreateDto.TipAmount,
                 Total = ordersCreateDto.Total,

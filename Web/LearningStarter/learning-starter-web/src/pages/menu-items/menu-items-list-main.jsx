@@ -37,6 +37,7 @@ export const MenuItemListPage = () => {
               <Item.Group>
                 <Item>
                   <Item.Content>
+                  <Image src='https://react.semantic-ui.com/images/avatar/large/daniel.jpg' wrapped ui={false} />
                     <Item.Header>{menuItems.name}</Item.Header>
                     <Item.Meta>
                       <span className="price">${menuItems.price}</span>

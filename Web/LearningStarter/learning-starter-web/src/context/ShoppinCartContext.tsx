@@ -1,7 +1,8 @@
 import React from "react";
 import { ShoppingCart } from "../components/shopping-cart/ShoppingCart";
-import { createContext, ReactNode, useContext, useState } from "react";
+import { useEffect, createContext, ReactNode, useContext, useState } from "react";
 import { Button, Header, Image, Modal } from "semantic-ui-react";
+import { useEffectOnce } from "react-use";
 
 type ShoppingCartProviderProps = {
   children: ReactNode;
@@ -48,6 +49,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
 
   function increaseCartQuantity(id: number) {
     setCartItems((currItems) => {
+      console.log("current cart items",currItems)
       if (currItems.find((item) => item.id === id) == null) {
         return [...currItems, { id, quantity: 1 }];
       } else {
@@ -89,6 +91,8 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
   }
   const [open, setOpen] = React.useState(false);
 
+ 
+
   return (
     <ShoppingCartContext.Provider
       value={{
@@ -104,7 +108,6 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
       }}
     >
       {children}
-      <ShoppingCart />
     </ShoppingCartContext.Provider>
   );
 }
