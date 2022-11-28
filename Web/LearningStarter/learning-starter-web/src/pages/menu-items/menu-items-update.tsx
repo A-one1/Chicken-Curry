@@ -42,7 +42,7 @@ export const MenuItemsUpdatePage = () => {
 
   useEffect(() => {
     fetchMenuItems();
-  }, [fetchMenuItems]);
+  }, [deleteMenuItems]);
   return (
     <>
       <div>

@@ -138,10 +138,10 @@ export const mapUser = (user: any): UserDto => ({
   id: user.id,
   firstName: user.firstName,
   lastName: user.lastName,
-  userName: user.userName,
-  PhoneNumber: user.PhoneNumber,
-  Address: user.Address,
-  ZipCode: user.ZipCode,
-  RewardPoints: user.RewardPoints,
+  username: user.username,
+  phoneNumber: user.phoneNumber,
+  address: user.address,
+  zipCode: user.zipCode,
+  rewardPoints: user.rewardPoints,
 
 });

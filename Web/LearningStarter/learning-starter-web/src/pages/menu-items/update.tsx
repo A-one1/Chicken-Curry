@@ -15,7 +15,6 @@ import { useHistory } from "react-router-dom";
 export const UpdatePage = () => {
   const history = useHistory();
 
-  // let match = useRouteMatch<{ id: string }>();
   const { id } = useParams();
 
   const [menuItems, setMenuItems] = useState<MenuItemsGetDto>();
@@ -25,12 +24,10 @@ export const UpdatePage = () => {
     if (response.data.hasErrors) {
       console.log(response.data.errors);
     }
-
     setMenuItems(response.data.data);
   };
   useEffect(() => {
     fetchMenuItems();
-    console.log(menuItems);
   }, [id]);
 
   const onSubmit = async (values: MenuItemsCreateDto) => {
@@ -56,7 +53,8 @@ export const UpdatePage = () => {
       {menuItems && (
         <Formik initialValues={menuItems} onSubmit={onSubmit}>
           <Form>
-            <Label htmlFor="name">Name</Label>            <Field id="name" name="name">
+            <Label htmlFor="name">Name</Label>{" "}
+            <Field id="name" name="name">
               {({ field }) => (
                 <>
                   <Input {...field}></Input>{" "}
@@ -81,7 +79,6 @@ export const UpdatePage = () => {
               {({ field }) => (
                 <>
                   <TextArea
-                  placeholder="Describe"
                     rows="3"
                     style={{ width: "500px", height: "100px" }}
                     {...field}
@@ -90,7 +87,9 @@ export const UpdatePage = () => {
               )}
             </Field>
             <br /> <br />
-            <Button className="ui positive basic button"type="submit">Update</Button>
+            <Button className="ui positive basic button" type="submit">
+              Update
+            </Button>
           </Form>
         </Formik>
       )}

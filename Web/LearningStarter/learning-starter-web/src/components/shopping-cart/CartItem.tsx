@@ -1,8 +1,8 @@
+import React, { useEffect, useState } from "react";
 import { useShoppingCart } from "../../context/ShoppinCartContext";
 import axios from "axios";
 import { BaseUrl } from "../../constants/env-vars";
 import { MenuItemsGetDto } from "../../constants/types";
-import React, { useEffect, useState } from "react";
 import { Button, Card } from "semantic-ui-react";
 
 type CartItemProps = {
@@ -14,10 +14,12 @@ type CartItemProps = {
 
 export function CartItem({ id, quantity, setTotal, total }: CartItemProps) {
   const [menuItem, setMenuItem] = useState<MenuItemsGetDto>();
+ // const[totalPrice, setTotalPrice]= useState();
 
   const { removeFromCart } = useShoppingCart();
   const fetchMenuItems = async () => {
-    const response = await axios
+    
+     await axios
       .get(`${BaseUrl}/api/menuitems/` + id)
       .then((res) => {
         if (res.data.hasErrors) {
@@ -26,12 +28,19 @@ export function CartItem({ id, quantity, setTotal, total }: CartItemProps) {
           });
         } else {
           setMenuItem(res.data.data);
-          setTotal(total + res.data.data.price * quantity);
+          
+          total+=res.data.data.price * quantity
+          setTotal(total);                                                                                                                                                    
+
         }
       });
-    // const total = 0;
   };
-
+// function getTotalPrice():any{
+//   let totalp=0;
+//   menuItem.map(a:any)=>{
+//     totalp+=a.price
+//   }
+// }
   useEffect(() => {
     fetchMenuItems();
   }, []);

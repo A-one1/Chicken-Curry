@@ -4,6 +4,7 @@ import {
   Button,
   Card,
   CardContent,
+  Icon,
   Item,
   MenuItem,
   Segment,
@@ -39,13 +40,20 @@ export const MenuItemListPage = () => {
   } = useShoppingCart();
   return (
     <>
-      <Card.Group itemsPerRow={4} centered>
+      <div className="ui centered cards" style={{ marginTop: "60px" }}>
         {menuItems ? (
           menuItems.map((menuItems) => {
             const quantity = getItemQuantity(menuItems.id);
 
             return (
-              <Card>
+              <div
+                className="green card"
+                style={{
+                  marginLeft: "50px",
+                  marginRight: "40px",
+                  marginBottom: "40px",
+                }}
+              >
                 <CardContent>
                   <Card.Header>{menuItems.name}</Card.Header>
                   <Card.Meta> ${menuItems.price}</Card.Meta>
@@ -60,7 +68,7 @@ export const MenuItemListPage = () => {
                         small
                         onClick={() => increaseCartQuantity(menuItems.id)}
                       >
-                        + Add to Cart
+                        <Icon className="cart plus icon" />
                       </Button>
                     ) : (
                       <div
@@ -72,18 +80,17 @@ export const MenuItemListPage = () => {
                           style={{ gap: "2rem" }}
                         >
                           <Button
-                          className="tiny floated"
-                          
+                            className="tiny floated"
                             onClick={() => decreaseCartQuantity(menuItems.id)}
                           >
-                            -
+                            <Icon className=" minus icon" />
                           </Button>
-                          <span className="fs-3">{quantity}</span> in cart 
+                          <span className="fs-3">{quantity}</span> in cart
                           <Button
-                          className="tiny floated"
+                            className="tiny floated"
                             onClick={() => increaseCartQuantity(menuItems.id)}
                           >
-                            +
+                            <Icon className="plus icon" />
                           </Button>
                         </div>
                         <br></br>
@@ -92,19 +99,19 @@ export const MenuItemListPage = () => {
                           className="negative"
                           size="small"
                         >
-                          Remove
+                          <Icon className="trash alternate outline icon"></Icon>
                         </Button>
                       </div>
                     )}
                   </div>
                 </Card.Content>
-              </Card>
+              </div>
             );
           })
         ) : (
           <div>LOADING...</div>
         )}
-      </Card.Group>
+      </div>
     </>
   );
 };

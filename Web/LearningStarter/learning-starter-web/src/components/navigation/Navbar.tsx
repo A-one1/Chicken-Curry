@@ -8,30 +8,19 @@ import { useHistory } from "react-router-dom";
 import { useShoppingCart } from "../../context/ShoppinCartContext";
 import "./navigation.css";
 import {
-  Dropdown,
-  Image,
-  Menu,
-  Icon,
   Button,
-  SemanticICONS,
-  Container,
-  Modal,
-  Header,
-  Item,
+  Modal
 } from "semantic-ui-react";
-import { MenuItemsGetDto, UserDto } from "../../constants/types";
 import { logoutUser } from "../../authentication/authentication-services";
 import { CartItem } from "../shopping-cart/CartItem";
-import { BaseUrl } from "../../constants/env-vars";
+import { ShoppingCart } from "../shopping-cart/ShoppingCart";
 
 function Navbar() {
   const closeMobileMenu = () => setClick(false);
 
   const history = useHistory();
   const menulist = () => {
-    
     history.push(routes.menuItems.list);
-    closeMobileMenu();
   };
   const menucreate = () => {
     history.push(routes.menuItems.create);
@@ -39,11 +28,10 @@ function Navbar() {
   const menuupdate = () => {
     history.push(routes.menuItems.update);
   };
-
+  
   const [click, setClick] = useState(false);
 
   const handleClick = () => setClick(!click);
-
 
   const [button, setButton] = useState(true);
 
@@ -72,11 +60,19 @@ function Navbar() {
   const [open, setOpen] = React.useState(false);
 
   const [secondOpen, setSecondOpen] = React.useState(false);
+  //const [items, setItems] = useState();
 
+  useEffect(() => {
+    localStorage.setItem('totalPrice', JSON.stringify(total));
+  }, [total]);
+  
+  
   // const [menuItems, setMenuItems] = useState<MenuItemsGetDto[]>();
   var menuItemsIds = getCartItems();
+  
   return (
     <>
+    
       <nav className="navbar">
         <div className="navbar-container">
           <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
@@ -103,14 +99,13 @@ function Navbar() {
               </Link>
             </li> */}
               <li className="nav-items">
-                <div className="dropdown" style={{ marginTop: "2px" }}>
+                <div className="dropdown" style={{ marginTop: "4px" }}>
                   <Button
                     className="dropbtn"
                     style={{
                       color: "white",
                       fontSize: "1.2rem",
                       backgroundColor: "transparent",
-                      
                     }}
                   >
                     Menu
@@ -121,17 +116,15 @@ function Navbar() {
                     style={{ backgroundColor: "#242424" }}
                     // onClick={closeMobileMenu}
                   >
-                    <a style={{ color: "white" }} 
-                    href=""
-                    onClick={menulist}>
+                    <Link style={{ color: "white" }}  to={routes.menuItems.list}>
                       <i className="food icon"></i>List
-                    </a>
-                    <a  href="" onClick={menucreate} style={{ color: "white" }}>
+                    </Link>
+                    <Link to={routes.menuItems.create} style={{ color: "white" }}>
                       <i className="plus icon"> </i>Create
-                    </a>
-                    <a href="" onClick={menuupdate} style={{ color: "white" }}>
+                    </Link>
+                    <Link to={routes.menuItems.update} style={{ color: "white" }}>
                       <i className="settings icon"></i>Update
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </li>
@@ -200,16 +193,22 @@ function Navbar() {
                   >
                     <Modal.Header>Your Cart</Modal.Header>
                     <Modal.Content>
+                    
                       {menuItemsIds.map((menuItem) => {
+                        console.log("menu list ----->",menuItemsIds)
+                        console.log("gere is ste total",total)
                         return (
                           <CartItem
                             id={menuItem.id}
                             quantity={menuItem.quantity}
                             setTotal={setTotal}
                             total={total}
-                          ></CartItem>
+                          />
+                          
                         );
                       })}
+                      
+                      <ShoppingCart/>
                     </Modal.Content>
                     <Modal.Actions>
                       Total:{total}
@@ -217,20 +216,22 @@ function Navbar() {
                         className="ui right labeled icon button"
                         color="black"
                         content="Cancel"
-                        onClick={() => setOpen(false)}
+                        onClick={() => {setOpen(false); setTotal(0)}}
+                        
                       >
                         Cancel
                         <i className="cancel icon"></i>
                       </Button>
-                      <Link to={routes.checkout}> 
-                      <Button
-                      to={routes.Checkout}
-                        content="Proceed"
-                        labelPosition="right"
-                        icon="checkmark"
-                        onClick={() =>setOpen(false)}
-                        positive
-                      />
+                      <Link to={routes.checkout}>
+                        <Button
+                          to={routes.checkout}
+                          content="Checkout"
+                          labelPosition="right"
+                          icon="checkmark"
+                          onClick={() => {setOpen(false)}}
+                          positive
+                        />
+                        
                       </Link>
                     </Modal.Actions>
                     <Modal
@@ -261,16 +262,19 @@ function Navbar() {
                       color: "white",
                       fontSize: "1.2rem",
                       backgroundColor: "transparent",
-                      
                     }}
                   >
                     <i className="angle down icon"></i>
                   </Button>
                   <div
                     className="dropdown-content"
-                    style={{ backgroundColor: "#242424", float:"right"}}
+                    style={{ backgroundColor: "#242424", float: "right" }}
                   >
-                    <a style={{ color: "white" }} href={routes.order} onClick={closeMobileMenu}>
+                    <a
+                      style={{ color: "white" }}
+                      href={routes.order}
+                      onClick={closeMobileMenu}
+                    >
                       My Orders
                     </a>
                     <a style={{ color: "white" }} href={routes.user}>
