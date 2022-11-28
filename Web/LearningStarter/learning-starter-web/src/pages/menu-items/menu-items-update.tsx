@@ -6,10 +6,16 @@ import { MenuItemsGetDto } from "../../constants/types";
 import { Icon, Label, Menu, Table } from "semantic-ui-react";
 import { routes } from "../../routes/config";
 import { UpdatePage } from "./update";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export const MenuItemsUpdatePage = () => {
+  const { id } = useParams();
+
   const [menuItems, setMenuItems] = useState<MenuItemsGetDto[]>();
+
+  const [posts, setPosts] = useState([]);
 
   const fetchMenuItems = async () => {
     const response = await axios.get(`${BaseUrl}/api/menuitems`);
@@ -23,10 +29,20 @@ export const MenuItemsUpdatePage = () => {
     }
   };
 
+  const deleteMenuItems = async (e) => {
+    const id = e.target.id;
+   const response = await axios.delete(`${BaseUrl}/api/menuitems/${id}`);
+    if(response.data.hasErrors){
+      console.log(response.data.errors);
+    }
+    setMenuItems(response.data.data);
+
+    
+  };
 
   useEffect(() => {
     fetchMenuItems();
-  }, []);
+  }, [deleteMenuItems]);
   return (
     <>
       <div>
@@ -62,8 +78,8 @@ export const MenuItemsUpdatePage = () => {
                               Update
                             </Button>
                           </Link>
-                          <Button icon secondary onClick={() => {}}>
-                            Delete{" "}
+                          <Button id={menuItems.id} icon secondary onClick={deleteMenuItems}>
+                            Delete
                           </Button>
                         </Table.Cell>
                       </Table.Row>

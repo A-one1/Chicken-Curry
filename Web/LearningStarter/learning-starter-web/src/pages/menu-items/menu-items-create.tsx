@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Field, Form, Formik } from "formik";
 import React from "react";
-import { Button, Input } from "semantic-ui-react";
+import { Button, Input, Label, TextArea } from "semantic-ui-react";
 import {
   ApiResponse,
   MenuItemsGetDto,
@@ -39,7 +39,7 @@ export const MenuItemsCreatePage = () => {
         <Form>
           <div>
             <h1> CREATE MENU ITEMS </h1>
-            <label htmlFor="name">Name </label>
+            <Label htmlFor="name">Name </Label>
             <Field id="name" name="name">
               {({ field }) => (
                 <>
@@ -48,7 +48,7 @@ export const MenuItemsCreatePage = () => {
               )}
             </Field>
             <br /> <br />
-            <label htmlFor="price">Price</label>
+            <Label htmlFor="price">Price</Label>
             <Field id="price" name="price">
               {({ field }) => (
                 <>
@@ -57,11 +57,17 @@ export const MenuItemsCreatePage = () => {
               )}
             </Field>
             <br /> <br />
-            <label htmlFor="description">Description</label>
+            <Label htmlFor="description">Description</Label>
+            <br/>
             <Field id="description" name="description">
               {({ field }) => (
                 <>
-                  <Input placeholder="Describe " {...field}></Input>{" "}
+                <TextArea
+                    rows="3"
+                    placeholder="Sweet $ Spicy"
+                    style={{ width: "500px", height: "100px" }}
+                    {...field}
+                  ></TextArea>{" "}
                 </>
               )}
             </Field>
@@ -77,8 +83,9 @@ export const MenuItemsCreatePage = () => {
             <br /> <br />
           </div>
           <div>
-            <Button type="submit">Create</Button>
+            <Button className="ui positive basic button" type="submit">Create</Button>
           </div>
+          
         </Form>
       </Formik>
     </>

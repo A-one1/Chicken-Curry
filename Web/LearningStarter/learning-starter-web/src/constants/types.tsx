@@ -1,4 +1,7 @@
 //This type uses a generic (<T>).  For more information on generics see: https://www.typescriptlang.org/docs/handbook/2/generics.html
+
+import { NumberLiteralType } from "typescript";
+
 //You probably wont need this for the scope of this class :)
 export type ApiResponse<T> = {
   data: T;
@@ -19,12 +22,36 @@ export type UserDto = {
   id: number;
   firstName: string;
   lastName: string;
-  userName: string;
-  PhoneNumber: string;
-  Address: string;
-  ZipCode: number;
-  RewardPoints: number;
+  username: string;
+  phoneNumber: string;
+  address: string;
+  zipCode: number;
+  rewardPoints: number;
+  password: string;
+
 };
+
+export type UserCreateDto = {
+  firstName: string;
+  lastName: string;
+  username: string;
+  phoneNumber: string;
+  address: string;
+  zipCode: number;
+};
+
+export type UserGetDto = {
+  id: number;
+  firstName: string;
+  lastName: string;
+  username: string;
+  phoneNumber: string;
+  address: string;
+  zipCode: number;
+  rewardPoints: number;
+
+};
+
 
 export type MenuItemsCreateDto = {
   name: string;
@@ -40,12 +67,16 @@ export type MenuItemsGetDto = {
   pictureUrl: string;
 };
 
-export type userCreateDto = {
-  firstName: string;
-  lastName: string;
-  userName: string;
-  password: string;
-  phoneNumber: string;
-  address: string;
-  zipCode: number;
-};
+
+
+export type OrdersCreateDto = {
+  customer: number;
+  dateTime: String;
+  total: number;
+  tipAmount: number;
+  status: number;
+  type: number;
+  customerComments: string;
+
+  
+}

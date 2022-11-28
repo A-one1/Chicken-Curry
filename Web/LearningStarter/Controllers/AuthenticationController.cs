@@ -3,6 +3,7 @@ using LearningStarter.Entities;
 using LearningStarter.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Reflection.Emit;
 
 namespace LearningStarter.Controllers
 {
@@ -62,7 +63,11 @@ namespace LearningStarter.Controllers
                 Id = user.Id,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
-                Username = user.Username
+                Username = user.Username,
+                Address=user.Address,
+                ZipCode=user.ZipCode,
+                RewardPoints=user.RewardPoints,
+                PhoneNumber=user.PhoneNumber,
             };
 
             response.Data = userGetDto;

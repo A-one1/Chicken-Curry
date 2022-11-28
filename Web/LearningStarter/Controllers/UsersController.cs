@@ -193,10 +193,10 @@ namespace LearningStarter.Controllers
                 response.AddError("userName", "User name cannot be empty.");
             }
 
-            if (user.Password == null || user.Password == "")
-            {
-                response.AddError("password", "Password cannot be empty.");
-            }
+            //if (user.Password == null || user.Password == "")
+            //{
+            //    response.AddError("password", "Password cannot be empty.");
+            //}
 
             if (response.HasErrors)
             {
@@ -206,8 +206,8 @@ namespace LearningStarter.Controllers
             userToEdit.FirstName = user.FirstName;
             userToEdit.LastName = user.LastName;
             userToEdit.Username = user.Username;
-            userToEdit.Password = user.Password;
-            userToEdit.Address = user.Address;
+/*            userToEdit.Password = user.Password;
+*/            userToEdit.Address = user.Address;
             userToEdit.PhoneNumber = user.PhoneNumber;
             userToEdit.Role = user.Role;
             userToEdit.ZipCode = user.ZipCode;

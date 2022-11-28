@@ -14,6 +14,6 @@
   flex-direction: column;
   padding-top: 8px;
   /* full content height - header height */
-  height: calc(100vh - 60px) !important;
+  height: calc(100vh - 80px) !important;
   overflow-y: auto;
 }
