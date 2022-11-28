@@ -66,6 +66,15 @@ export const MenuItemsCreatePage = () => {
               )}
             </Field>
             <br /> <br />
+            <label htmlFor="pictureUrl">Image URL</label>
+            <Field id="pictureUrl" name="pictureUrl">
+              {({ field }) => (
+                <>
+                  <Input placeholder="URL" {...field}></Input>{" "}
+                </>
+              )}
+            </Field>
+            <br /> <br />
           </div>
           <div>
             <Button type="submit">Create</Button>

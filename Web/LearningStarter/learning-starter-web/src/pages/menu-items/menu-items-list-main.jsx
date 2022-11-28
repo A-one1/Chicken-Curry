@@ -42,6 +42,7 @@ export const MenuItemListPage = () => {
                       <span className="price">${menuItems.price}</span>
                     </Item.Meta>
                     <Item.Description>{menuItems.description}</Item.Description>
+                    <Item.Image src = {menuItems.pictureUrl} />
                   </Item.Content>
                 </Item>
               </Item.Group>

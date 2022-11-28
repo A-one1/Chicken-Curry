@@ -37,6 +37,7 @@ export type MenuItemsGetDto = {
   name: string;
   price: number;
   description: string;
+  pictureUrl: string;
 };
 
 export type userCreateDto = {
