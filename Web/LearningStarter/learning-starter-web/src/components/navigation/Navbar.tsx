@@ -101,7 +101,7 @@ function Navbar() {
               <li className="nav-items">
                 <div className="dropdown" style={{ marginTop: "4px" }}>
                   <Button
-                    className="dropbtn"
+                    className="dropdown"
                     style={{
                       color: "white",
                       fontSize: "1.2rem",
@@ -284,7 +284,6 @@ function Navbar() {
                       Contact Us
                     </a> */}
                     <a
-                      href={routes.menuItems.list}
                       style={{ color: "white" }}
                       onClick={async () => {
                         logoutUser();

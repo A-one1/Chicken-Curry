@@ -1,11 +1,11 @@
 import "./page-wrapper.css";
 import React from "react";
-import { User } from "../../constants/types";
+import { UserDto } from "../../constants/types";
 import { PrimaryNavigation } from "../navigation/navigation";
 import Navbar from "../navigation/Navbar";
 
 type PageWrapperProps = {
-  user?: User;
+  user?: UserDto;
 };
 
 //This is the wrapper that surrounds every page in the app.  Changes made here will be reflect all over.

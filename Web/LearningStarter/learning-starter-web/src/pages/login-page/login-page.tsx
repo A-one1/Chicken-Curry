@@ -9,6 +9,9 @@ import { PageWrapper } from "../../components/page-wrapper/page-wrapper";
 import { loginUser } from "../../authentication/authentication-services";
 import { Link } from "react-router-dom";
 import { RegisterPage } from "../signup-page/sign-up";
+import { useHistory } from "react-router-dom";
+import { routes } from "../../routes/config";
+
 
 const baseUrl = process.env.PUBLIC_URL;
 
@@ -32,6 +35,7 @@ export const LoginPage = () => {
     }),
     []
   );
+  const history = useHistory();
   const [, submitLogin] = useAsyncFn(async (values: LoginRequest) => {
     if (baseUrl === undefined) {
       return;
@@ -46,6 +50,7 @@ export const LoginPage = () => {
     if (response.data.data) {
       console.log("Successfully Logged In!");
       loginUser();
+      history.push(routes.home);
     }
     else{
       alert("Invalid Username or Password!");
@@ -88,6 +93,7 @@ export const LoginPage = () => {
 
 
                   <Modal
+                  className="ui modal active small"
                     onClose={() => setOpen(false)}
                     onOpen={() => setOpen(true)}
                     open={open}
@@ -100,18 +106,7 @@ export const LoginPage = () => {
                         <RegisterPage />
                       </Modal.Description>
                     </Modal.Content>
-                    <Modal.Actions>
-                      <Button color="black" onClick={() => setOpen(false)}>
-                        Nope
-                      </Button>
-                      <Button
-                        content="Yep, that's me"
-                        labelPosition="right"
-                        icon="checkmark"
-                        onClick={() => setOpen(false)}
-                        positive
-                      />
-                    </Modal.Actions>
+                   
                   </Modal>
                 </div>
               </div>

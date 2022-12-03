@@ -1,6 +1,6 @@
 //This type uses a generic (<T>).  For more information on generics see: https://www.typescriptlang.org/docs/handbook/2/generics.html
 
-import { NumberLiteralType } from "typescript";
+// import { NumberLiteralType } from "typescript";
 
 //You probably wont need this for the scope of this class :)
 export type ApiResponse<T> = {
