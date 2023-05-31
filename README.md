@@ -1,6 +1,4 @@
-# learning-starter
-
-Chicken and Curry 
+# Chicken and Curry 
 
 -Online food delivery website
 
